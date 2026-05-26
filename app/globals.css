@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-sans: "Inter", "Avenir Next", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+  --font-serif: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(0, 166, 125, 0.16), transparent 28rem),
+    radial-gradient(circle at 84% 12%, rgba(215, 182, 109, 0.09), transparent 24rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px),
+    #070908;
+  background-size: auto, auto, 28px 28px, auto;
+  color: #f3eee2;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(0, 166, 125, 0.45);
+  color: #fff;
+}
+
+.jade-border {
+  border: 1px solid rgba(183, 227, 206, 0.18);
+}
+
+.micro-texture {
+  background-size: 42px 42px;
+}
+
+.video-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-sheen::after {
+  animation: scan 5s linear infinite;
+  background: linear-gradient(90deg, transparent, rgba(183, 227, 206, 0.18), transparent);
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateX(-100%);
+}
+
+.mineral-panel {
+  background:
+    linear-gradient(135deg, rgba(183, 227, 206, 0.1), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at 30% 25%, rgba(0, 166, 125, 0.22), transparent 28%),
+    rgba(255, 255, 255, 0.045);
+}
+
+.scan-lines {
+  background-image: linear-gradient(rgba(183, 227, 206, 0.08) 1px, transparent 1px);
+  background-size: 100% 9px;
+}
+
+.gold-rule {
+  background: linear-gradient(90deg, transparent, rgba(215, 182, 109, 0.65), transparent);
+  height: 1px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.en-caption {
+  font-family: "Avenir Next", Inter, system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  45%,
+  100% {
+    transform: translateX(100%);
+  }
+}
