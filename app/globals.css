@@ -5,7 +5,7 @@
 :root {
   color-scheme: dark;
   --font-sans: "Inter", "Avenir Next", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
-  --font-serif: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+  --font-serif: var(--font-display), "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
 }
 
 * {
@@ -39,6 +39,21 @@ a {
 ::selection {
   background: rgba(0, 166, 125, 0.45);
   color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070908;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(215, 182, 109, 0.5), rgba(0, 166, 125, 0.4));
+  border-radius: 999px;
+  border: 2px solid #070908;
 }
 
 .jade-border {
@@ -90,6 +105,87 @@ a {
   text-transform: uppercase;
 }
 
+/* Luxury gold foil text */
+.text-gold-foil {
+  background: linear-gradient(96deg, #f6e6b6 0%, #d7b66d 38%, #b78f4f 60%, #f1d99a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: foil 7s ease-in-out infinite;
+}
+
+/* Sheen sweep on hover for primary actions */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-sheen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translateX(-130%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+  transition: transform 0.7s ease;
+}
+
+.btn-sheen:hover::before {
+  transform: translateX(130%) skewX(-18deg);
+}
+
+/* Thin gold underline that grows on hover */
+.nav-underline {
+  position: relative;
+}
+
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, rgba(215, 182, 109, 0.9), transparent);
+  transition: transform 0.35s ease;
+}
+
+.nav-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Scroll-reveal — graceful: only animates where supported, otherwise stays visible */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 24%;
+    }
+  }
+
+  .hero-rise {
+    animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-rise-1 {
+    animation-delay: 0.05s;
+  }
+
+  .hero-rise-2 {
+    animation-delay: 0.18s;
+  }
+
+  .hero-rise-3 {
+    animation-delay: 0.32s;
+  }
+}
+
 @keyframes scan {
   0% {
     transform: translateX(-100%);
@@ -97,5 +193,26 @@ a {
   45%,
   100% {
     transform: translateX(100%);
+  }
+}
+
+@keyframes foil {
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

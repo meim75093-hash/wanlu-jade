@@ -4,11 +4,11 @@ import type { Stone } from "@/data/stones";
 
 export function StoneCard({ stone }: { stone: Stone }) {
   return (
-    <article className="jade-border overflow-hidden rounded-lg bg-[#0b100e] shadow-gold">
-      <div className="relative aspect-[4/3] bg-obsidian">
+    <article className="group jade-border relative overflow-hidden rounded-lg bg-[#0b100e] shadow-card transition duration-500 hover:-translate-y-1.5 hover:border-gold/40 hover:shadow-lift">
+      <div className="relative aspect-[4/3] overflow-hidden bg-obsidian">
         <Image
           alt={stone.title}
-          className="object-cover saturate-[1.08] contrast-[1.06]"
+          className="object-cover saturate-[1.08] contrast-[1.06] transition duration-700 ease-out group-hover:scale-[1.06]"
           fill
           unoptimized
           sizes="(min-width: 1024px) 33vw, 100vw"
@@ -18,7 +18,7 @@ export function StoneCard({ stone }: { stone: Stone }) {
         <div className="absolute left-4 top-4 rounded-md border border-celadon/20 bg-obsidian/78 px-3 py-2 text-xs text-celadon backdrop-blur">
           {stone.videoLabel}
         </div>
-        <div className="absolute right-4 top-4 rounded-md bg-gold px-3 py-2 text-xs font-semibold text-obsidian">
+        <div className="absolute right-4 top-4 rounded-md bg-gold px-3 py-2 text-xs font-semibold text-obsidian shadow-gold">
           {stone.priceSignal}
         </div>
         <div className="absolute bottom-4 left-4 right-4">

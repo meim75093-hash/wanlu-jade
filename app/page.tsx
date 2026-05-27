@@ -29,6 +29,12 @@ const proofPoints: Array<[string, string, string, LucideIcon]> = [
   ["私下细看", "Private review", "WhatsApp / LINE / TG 发原视频，一块一块看", MessageCircle]
 ];
 
+const heroStats: Array<[string, string]> = [
+  ["10+", "年缅甸场口经验"],
+  ["3000+", "块料子实拍存档"],
+  ["全球", "华人藏家直邮"]
+];
+
 const videoShots = [
   ["开窗看肉", "Window view", "看颜色有没有进去，也看肉够不够细。"],
   ["打灯看底", "Light test", "水头、棉、裂，灯下一圈一圈带你看。"],
@@ -54,7 +60,7 @@ export default function Home() {
   return (
     <main className="pb-24 md:pb-0">
       <Header />
-      <section className="relative overflow-hidden border-b border-gold/15 pt-20">
+      <section className="relative overflow-hidden border-b border-gold/15 pt-28">
         <div className="absolute inset-0">
           <Image
             alt="翡翠原石切面微距"
@@ -68,27 +74,27 @@ export default function Home() {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,9,8,.70)_0%,rgba(7,9,8,.94)_72%,#070908_100%),linear-gradient(90deg,#070908_0%,rgba(7,9,8,.86)_35%,rgba(7,9,8,.28)_100%)]" />
         </div>
 
-        <div className="relative mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[.86fr_1.14fr] lg:items-center lg:px-8 lg:py-14">
+        <div className="relative mx-auto grid min-h-[calc(100svh-7rem)] max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[.86fr_1.14fr] lg:items-center lg:px-8 lg:py-14">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-md border border-gold/35 bg-obsidian/72 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-gold backdrop-blur">
+            <div className="hero-rise hero-rise-1 mb-4 inline-flex items-center gap-2 rounded-md border border-gold/35 bg-obsidian/72 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-gold backdrop-blur">
               <Sparkles className="h-3.5 w-3.5" />
               Source Jadeite / Real Video First
             </div>
-            <h1 className="text-balance font-serif text-[42px] leading-[1.04] text-bone sm:text-6xl lg:text-7xl">
-              源头翡翠原石
-              <span className="block text-celadon">先看清楚，再决定</span>
+            <h1 className="hero-rise hero-rise-1 text-balance font-serif text-[44px] leading-[1.04] text-bone sm:text-6xl lg:text-7xl">
+              源头<span className="text-gold-foil">翡翠原石</span>
+              <span className="mt-1 block text-celadon">先看清楚，再决定</span>
             </h1>
-            <p className="mt-4 max-w-2xl font-serif text-xl leading-8 text-gold/88">
+            <p className="hero-rise hero-rise-2 mt-4 max-w-2xl font-serif text-xl leading-8 text-gold/88">
               Source jadeite rough stones. See the real video before you decide.
             </p>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-bone/78 sm:text-lg">
+            <p className="hero-rise hero-rise-2 mt-5 max-w-2xl text-base leading-8 text-bone/78 sm:text-lg">
               我们做缅甸翡翠原石、半明料、改口料和高端色料。你不用只看几张漂亮图，
               可以先看自然光、压灯、开窗和侧面视频，把优点和风险都看明白，再谈价格。
             </p>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-bone/52">
+            <p className="hero-rise hero-rise-2 mt-3 max-w-2xl text-sm leading-7 text-bone/52">
               Burmese jadeite rough stones, semi-opened pieces, cut-window stones, and fine color material for Chinese collectors worldwide.
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="hero-rise hero-rise-3 mt-7 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="https://wa.me/00000000000" icon={MessageCircle}>
                 发我想看的料子
               </PrimaryLink>
@@ -99,10 +105,18 @@ export default function Home() {
                 看最新上新
               </SecondaryLink>
             </div>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <dl className="hero-rise hero-rise-3 mt-8 grid max-w-2xl grid-cols-3 divide-x divide-white/10 rounded-lg border border-white/10 bg-obsidian/55 backdrop-blur">
+              {heroStats.map(([value, label]) => (
+                <div className="px-4 py-4 text-center" key={label}>
+                  <dt className="font-serif text-3xl text-gold-foil sm:text-4xl">{value}</dt>
+                  <dd className="mt-1 text-[11px] leading-4 text-bone/56">{label}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="hero-rise hero-rise-3 mt-6 grid gap-3 sm:grid-cols-3">
               {proofPoints.map(([title, en, text, Icon]) => (
                 <div
-                  className="rounded-lg border border-white/12 bg-obsidian/62 p-4 backdrop-blur"
+                  className="rounded-lg border border-white/12 bg-obsidian/62 p-4 backdrop-blur transition hover:border-gold/30 hover:bg-obsidian/80"
                   key={title}
                 >
                   <Icon className="h-5 w-5 text-gold" />
@@ -186,7 +200,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" id="stones">
+      <section className="reveal mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" id="stones">
         <div className="grid gap-7 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
           <SectionTitle
             eyebrow="Stone Selection"
@@ -211,7 +225,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-[#101413] py-16" id="videos">
+      <section className="reveal border-y border-white/10 bg-[#101413] py-16" id="videos">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-9 lg:grid-cols-[.72fr_1.28fr]">
           <SectionTitle
@@ -241,7 +255,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-9 px-4 py-16 sm:px-6 lg:grid-cols-[.72fr_1.28fr] lg:px-8" id="live">
+      <section className="reveal mx-auto grid max-w-7xl gap-9 px-4 py-16 sm:px-6 lg:grid-cols-[.72fr_1.28fr] lg:px-8" id="live">
         <div>
           <SectionTitle
             eyebrow="Live Viewing"
@@ -272,7 +286,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 bg-ink py-16" id="ai-service">
+      <section className="reveal border-t border-white/10 bg-ink py-16" id="ai-service">
         <div className="mx-auto grid max-w-7xl gap-9 px-4 sm:px-6 lg:grid-cols-[.72fr_1.28fr] lg:px-8">
           <SectionTitle
             eyebrow="Ask Before Buying"
@@ -304,7 +318,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="reveal mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow="How We Work"
             eyebrowCn="我们的方式"
@@ -324,6 +338,76 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <section className="reveal relative overflow-hidden border-t border-gold/20 bg-[#0a0e0c]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(0,166,125,.18),transparent_55%),radial-gradient(circle_at_85%_120%,rgba(215,182,109,.12),transparent_45%)]" />
+        <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
+          <p className="en-caption text-xs text-gold">Start Viewing</p>
+          <h2 className="text-balance mt-4 font-serif text-4xl leading-tight text-bone sm:text-5xl">
+            想看的料子，<span className="text-gold-foil">现在就发给我们</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-bone/70">
+            告诉我们想要的种水、颜色、预算和用途，我们挑出对应的料子，发自然光与压灯视频，先看清楚再谈价格。
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <PrimaryLink href="https://wa.me/00000000000" icon={MessageCircle}>
+              WhatsApp 发需求
+            </PrimaryLink>
+            <SecondaryLink href="https://line.me/ti/p/@wanlujade" icon={MessageCircle}>
+              LINE 咨询
+            </SecondaryLink>
+            <SecondaryLink href="https://t.me/wanlujade" icon={Send}>
+              Telegram 看上新
+            </SecondaryLink>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 bg-obsidian">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-md border border-gold/45 bg-white/6">
+                <Gem className="h-5 w-5 text-celadon" />
+              </span>
+              <span>
+                <span className="block font-serif text-lg tracking-[0.12em] text-bone">
+                  WANLU <span className="text-gold-foil">JADE</span>
+                </span>
+                <span className="block text-[10px] uppercase tracking-[0.24em] text-celadon/70">
+                  万璐翡翠 · Jadeite Source
+                </span>
+              </span>
+            </div>
+            <p className="mt-5 max-w-sm text-sm leading-7 text-bone/60">
+              缅甸翡翠原石、半明料、改口料与高端色料。源头看货，视频复核，把风险讲在前面，做长期信任。
+            </p>
+          </div>
+          <div>
+            <p className="en-caption text-xs text-gold">Channels</p>
+            <ul className="mt-4 space-y-3 text-sm text-bone/68">
+              <li><a className="nav-underline transition hover:text-celadon" href="https://wa.me/00000000000">WhatsApp 一对一看货</a></li>
+              <li><a className="nav-underline transition hover:text-celadon" href="https://line.me/ti/p/@wanlujade">LINE 咨询答疑</a></li>
+              <li><a className="nav-underline transition hover:text-celadon" href="https://t.me/wanlujade">Telegram 上新频道</a></li>
+            </ul>
+          </div>
+          <div>
+            <p className="en-caption text-xs text-gold">Explore</p>
+            <ul className="mt-4 space-y-3 text-sm text-bone/68">
+              <li><a className="nav-underline transition hover:text-celadon" href="#stones">原石展示</a></li>
+              <li><a className="nav-underline transition hover:text-celadon" href="#videos">看货视频</a></li>
+              <li><a className="nav-underline transition hover:text-celadon" href="#live">直播代购</a></li>
+              <li><a className="nav-underline transition hover:text-celadon" href="#ai-service">咨询答疑</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-white/8">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-bone/40 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+            <p>© {new Date().getFullYear()} Wanlu Jade 万璐翡翠. All rights reserved.</p>
+            <p>翡翠原石具有天然不确定性，看货判断仅供参考，不构成切涨承诺。</p>
+          </div>
+        </div>
+      </footer>
 
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/12 bg-obsidian/94 p-3 backdrop-blur md:hidden">
         <div className="grid grid-cols-3 gap-2">
@@ -353,7 +437,7 @@ function PrimaryLink({
 }) {
   return (
     <a
-      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-jade px-3 text-xs font-semibold text-obsidian transition hover:bg-celadon sm:px-5 sm:text-sm"
+      className="btn-sheen inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-jade px-3 text-xs font-semibold text-obsidian shadow-glow transition hover:bg-celadon sm:px-5 sm:text-sm"
       href={href}
     >
       <Icon className="h-4 w-4" />
@@ -373,7 +457,7 @@ function SecondaryLink({
 }) {
   return (
     <a
-      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/14 bg-white/8 px-3 text-xs font-semibold text-bone transition hover:bg-white/14 sm:px-5 sm:text-sm"
+      className="btn-sheen inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/14 bg-white/8 px-3 text-xs font-semibold text-bone transition hover:border-gold/40 hover:bg-white/14 sm:px-5 sm:text-sm"
       href={href}
     >
       <Icon className="h-4 w-4" />
