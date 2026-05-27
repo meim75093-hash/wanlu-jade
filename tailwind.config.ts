@@ -24,7 +24,9 @@ const config: Config = {
       },
       boxShadow: {
         glow: "0 0 44px rgba(0, 166, 125, 0.22)",
-        gold: "0 18px 70px rgba(215, 182, 109, 0.14)"
+        gold: "0 18px 70px rgba(215, 182, 109, 0.14)",
+        card: "0 1px 0 rgba(255,255,255,0.04) inset, 0 24px 60px -28px rgba(0,0,0,0.8)",
+        lift: "0 30px 80px -32px rgba(0,166,125,0.4), 0 1px 0 rgba(255,255,255,0.06) inset"
       },
       backgroundImage: {
         "stone-grain":
