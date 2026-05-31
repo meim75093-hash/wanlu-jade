@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond } from "next/font/google";
+import { LanguageProvider } from "@/context/language";
 import "./globals.css";
 
 const displaySerif = Cormorant_Garamond({
@@ -40,7 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className={displaySerif.variable}>
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

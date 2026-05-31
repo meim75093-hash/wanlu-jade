@@ -1,5 +1,8 @@
+"use client";
 import { Gem, Send } from "lucide-react";
 import { ContactButtons } from "./ContactButtons";
+import { LanguageToggle } from "./LanguageToggle";
+import { useLanguage } from "@/context/language";
 
 const nav = [
   ["关于万璐", "About", "#about"],
@@ -10,6 +13,9 @@ const nav = [
 ];
 
 export function Header() {
+  const { lang } = useLanguage();
+  const zh = lang === "zh";
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-gold/15 bg-obsidian/88 backdrop-blur-xl">
       <a
@@ -20,10 +26,14 @@ export function Header() {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cinnabar opacity-75" />
           <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cinnabar" />
         </span>
-        <span className="font-medium text-gold">本周上新</span>
-        <span className="hidden sm:inline">木那场口高冰料已到 · 自然光与压灯视频已就绪</span>
+        <span className="font-medium text-gold">{zh ? "本周上新" : "New arrivals"}</span>
+        <span className="hidden sm:inline">
+          {zh
+            ? "木那场口高冰料已到 · 自然光与压灯视频已就绪"
+            : "Hpakant high-ice stones arrived · Natural-light & torch videos ready"}
+        </span>
         <span className="inline-flex items-center gap-1 text-celadon transition group-hover:translate-x-0.5">
-          加 Telegram 先看
+          {zh ? "加 Telegram 先看" : "Follow on Telegram"}
           <Send className="h-3 w-3" />
         </span>
       </a>
@@ -42,28 +52,31 @@ export function Header() {
           </span>
         </a>
         <nav className="hidden items-center gap-7 text-sm text-bone/72 lg:flex">
-          {nav.map(([label, en, href]) => (
+          {nav.map(([labelZh, labelEn, href]) => (
             <a
               className="nav-underline group leading-tight transition hover:text-celadon"
               href={href}
               key={href}
             >
-              <span className="block">{label}</span>
+              <span className="block">{zh ? labelZh : labelEn}</span>
               <span className="block text-[10px] uppercase tracking-[0.16em] text-bone/38 transition group-hover:text-celadon/70">
-                {en}
+                {zh ? labelEn : labelZh}
               </span>
             </a>
           ))}
         </nav>
-        <div className="hidden items-center gap-3 xl:flex">
-          <ContactButtons />
+        <div className="flex items-center gap-2">
+          <LanguageToggle />
+          <div className="hidden items-center gap-3 xl:flex">
+            <ContactButtons />
+          </div>
+          <a
+            className="btn-sheen inline-flex min-h-10 items-center rounded-md bg-jade px-4 text-sm font-semibold text-obsidian transition hover:bg-celadon xl:hidden"
+            href="https://wa.me/00000000000"
+          >
+            WhatsApp
+          </a>
         </div>
-        <a
-          className="btn-sheen inline-flex min-h-10 items-center rounded-md bg-jade px-4 text-sm font-semibold text-obsidian transition hover:bg-celadon xl:hidden"
-          href="https://wa.me/00000000000"
-        >
-          WhatsApp
-        </a>
       </div>
     </header>
   );

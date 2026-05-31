@@ -1,8 +1,41 @@
 import Image from "next/image";
 import { Activity, BadgeAlert, Gem, type LucideIcon, MessageCircle, Scale } from "lucide-react";
 import type { Stone } from "@/data/stones";
+import type { Lang } from "@/context/language";
 
-export function StoneCard({ stone }: { stone: Stone }) {
+const uiText = {
+  zh: {
+    weight: "重量",
+    origin: "场口/来源",
+    shell: "皮壳",
+    colorBand: "色带",
+    cutAdvice: "建议切法",
+    assessment: "专业评估",
+    yieldRate: "取货空间",
+    colorConf: "色带表现",
+    crackRisk: "裂纹风险",
+    water: "种水倾向",
+    disclaimer: "以上为展示参考，原石存在天然不确定性。如需深入了解，请联系我们安排视频看货。",
+    cta: "私信了解这块料",
+  },
+  en: {
+    weight: "Weight",
+    origin: "Origin",
+    shell: "Shell",
+    colorBand: "Color band",
+    cutAdvice: "Cut advice",
+    assessment: "Expert Assessment",
+    yieldRate: "Yield",
+    colorConf: "Color",
+    crackRisk: "Crack risk",
+    water: "Water grade",
+    disclaimer: "For reference only. Rough jadeite carries natural uncertainty. Contact us to arrange a private video viewing.",
+    cta: "Enquire about this stone",
+  },
+} as const;
+
+export function StoneCard({ stone, lang = "zh" }: { stone: Stone; lang?: Lang }) {
+  const t = uiText[lang];
   return (
     <article className="group jade-border relative overflow-hidden rounded-lg bg-[#0b100e] shadow-card transition duration-500 hover:-translate-y-1.5 hover:border-gold/40 hover:shadow-lift">
       <div className="relative aspect-[4/3] overflow-hidden bg-obsidian">
@@ -30,8 +63,8 @@ export function StoneCard({ stone }: { stone: Stone }) {
       </div>
       <div className="space-y-5 p-5">
         <div className="grid grid-cols-2 gap-3 text-sm">
-          <Info icon={Scale} label="重量" value={stone.weight} />
-          <Info icon={Gem} label="场口/来源" value={stone.origin} />
+          <Info icon={Scale} label={t.weight} value={stone.weight} />
+          <Info icon={Gem} label={t.origin} value={stone.origin} />
         </div>
         <div className="flex flex-wrap gap-2">
           {stone.tags.map((tag) => (
@@ -45,40 +78,40 @@ export function StoneCard({ stone }: { stone: Stone }) {
         </div>
         <div className="space-y-3 border-l border-gold/28 pl-4 text-sm leading-6 text-bone/76">
           <p>
-            <span className="text-celadon">皮壳：</span>
+            <span className="text-celadon">{t.shell}：</span>
             {stone.shell}
           </p>
           <p>
-            <span className="text-celadon">色带：</span>
+            <span className="text-celadon">{t.colorBand}：</span>
             {stone.colorBand}
           </p>
           <p>
-            <span className="text-celadon">建议切法：</span>
+            <span className="text-celadon">{t.cutAdvice}：</span>
             {stone.cutAdvice}
           </p>
         </div>
         <div className="rounded-lg border border-jade/24 bg-[linear-gradient(135deg,rgba(0,166,125,.16),rgba(255,255,255,.035))] p-4">
           <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-celadon">
             <Activity className="h-4 w-4" />
-            专业评估
+            {t.assessment}
           </div>
           <div className="grid grid-cols-2 gap-3 text-xs">
-            <Metric label="取货空间" value={stone.ai.yieldRate} />
-            <Metric label="色带表现" value={stone.ai.colorConfidence} />
-            <Metric label="裂纹风险" value={stone.ai.crackRisk} />
-            <Metric label="种水倾向" value={stone.ai.water} />
+            <Metric label={t.yieldRate} value={stone.ai.yieldRate} />
+            <Metric label={t.colorConf} value={stone.ai.colorConfidence} />
+            <Metric label={t.crackRisk} value={stone.ai.crackRisk} />
+            <Metric label={t.water} value={stone.ai.water} />
           </div>
         </div>
         <div className="flex items-start gap-2 rounded-md border border-cinnabar/28 bg-cinnabar/10 p-3 text-xs leading-5 text-bone/72">
           <BadgeAlert className="mt-0.5 h-4 w-4 shrink-0 text-cinnabar" />
-          以上为展示参考，原石存在天然不确定性。如需深入了解，请联系我们安排视频看货。
+          {t.disclaimer}
         </div>
         <a
-          className="btn-sheen mt-1 flex w-full items-center justify-center gap-2 rounded-md border border-jade/35 bg-jade/10 py-3 text-sm font-semibold text-celadon transition hover:border-jade/55 hover:bg-jade/18"
+          className="btn-sheen flex w-full items-center justify-center gap-2 rounded-md border border-jade/35 bg-jade/10 py-3 text-sm font-semibold text-celadon transition hover:border-jade/55 hover:bg-jade/18"
           href="https://wa.me/00000000000"
         >
           <MessageCircle className="h-4 w-4" />
-          私信了解这块料
+          {t.cta}
         </a>
       </div>
     </article>
