@@ -2,7 +2,8 @@ import { Gem, Send } from "lucide-react";
 import { ContactButtons } from "./ContactButtons";
 
 const nav = [
-  ["原石展示", "Stones", "#stones"],
+  ["关于万璐", "About", "#about"],
+  ["精品展示", "Gallery", "#stones"],
   ["看货视频", "Videos", "#videos"],
   ["直播代购", "Live", "#live"],
   ["咨询答疑", "Consult", "#ai-service"]

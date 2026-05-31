@@ -28,7 +28,7 @@ export const stones: Stone[] = [
     type: "半明料 / 高货色料",
     weight: "2.18 kg",
     origin: "曼德勒货源 / 木那表现",
-    priceSignal: "可发视频",
+    priceSignal: "已完整存档",
     cover:
       "https://upload.wikimedia.org/wikipedia/commons/9/96/Jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2814925512338%29.jpg",
     videoLabel: "开窗微距 + 强光走色",
@@ -51,7 +51,7 @@ export const stones: Stone[] = [
     type: "改口料 / 紫罗兰",
     weight: "4.36 kg",
     origin: "会卡场口",
-    priceSignal: "可约细看",
+    priceSignal: "可预约欣赏",
     cover:
       "https://upload.wikimedia.org/wikipedia/commons/2/2b/Lavender_jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2815112081905%29.jpg",
     videoLabel: "自然光走紫 + 侧光结构",
@@ -74,7 +74,7 @@ export const stones: Stone[] = [
     type: "原石 / 打灯料",
     weight: "1.28 kg",
     origin: "瑞丽市场精选",
-    priceSignal: "直播可看",
+    priceSignal: "精品展示",
     cover:
       "https://upload.wikimedia.org/wikipedia/commons/3/3f/Raw_jadeite_jade_-_Burke_Museum_-_01.jpg",
     videoLabel: "黑皮压灯 + 裂纹巡检",

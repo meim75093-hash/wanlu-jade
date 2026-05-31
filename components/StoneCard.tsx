@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Activity, BadgeAlert, Gem, type LucideIcon, Scale } from "lucide-react";
+import { Activity, BadgeAlert, Gem, type LucideIcon, MessageCircle, Scale } from "lucide-react";
 import type { Stone } from "@/data/stones";
 
 export function StoneCard({ stone }: { stone: Stone }) {
@@ -60,7 +60,7 @@ export function StoneCard({ stone }: { stone: Stone }) {
         <div className="rounded-lg border border-jade/24 bg-[linear-gradient(135deg,rgba(0,166,125,.16),rgba(255,255,255,.035))] p-4">
           <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-celadon">
             <Activity className="h-4 w-4" />
-            看货参考
+            专业评估
           </div>
           <div className="grid grid-cols-2 gap-3 text-xs">
             <Metric label="取货空间" value={stone.ai.yieldRate} />
@@ -71,8 +71,15 @@ export function StoneCard({ stone }: { stone: Stone }) {
         </div>
         <div className="flex items-start gap-2 rounded-md border border-cinnabar/28 bg-cinnabar/10 p-3 text-xs leading-5 text-bone/72">
           <BadgeAlert className="mt-0.5 h-4 w-4 shrink-0 text-cinnabar" />
-          以上判断只做看货参考，不代表一定切涨或一定出货。下手前建议先看自然光、压灯和侧边视频。
+          以上为展示参考，原石存在天然不确定性。如需深入了解，请联系我们安排视频看货。
         </div>
+        <a
+          className="btn-sheen mt-1 flex w-full items-center justify-center gap-2 rounded-md border border-jade/35 bg-jade/10 py-3 text-sm font-semibold text-celadon transition hover:border-jade/55 hover:bg-jade/18"
+          href="https://wa.me/00000000000"
+        >
+          <MessageCircle className="h-4 w-4" />
+          私信了解这块料
+        </a>
       </div>
     </article>
   );

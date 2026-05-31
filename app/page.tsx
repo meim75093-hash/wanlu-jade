@@ -5,6 +5,7 @@ import {
   Database,
   Gem,
   Globe2,
+  MapPin,
   MessageCircle,
   Radio,
   ScanLine,
@@ -54,6 +55,13 @@ const workflow = [
   ["拍清楚", "Record", "自然光、压灯、侧面都拍"],
   ["讲明白", "Explain", "优点说，问题也说"],
   ["再成交", "Confirm", "确认视频和风险后再决定"]
+];
+
+const brandPoints: Array<[string, string, string, LucideIcon]> = [
+  ["驻扎一线", "On the ground", "常驻曼德勒、帕敢、瑞丽货源地，直接与场口对接，不经中间商转手。", MapPin],
+  ["视频优先", "Video first", "每块料子必发自然光与压灯视频，文字说不清楚的，镜头来说。", Video],
+  ["全球华人", "Global reach", "服务遍布东南亚、两岸三地及欧美的华人翡翠收藏家群体。", Globe2],
+  ["长期积累", "Long-term archive", "三千余块料子完整存档，切料结果持续复盘，积累长期藏家信任。", Database],
 ];
 
 export default function Home() {
@@ -200,22 +208,66 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="reveal border-b border-white/8 bg-[#0a0d0b] py-16" id="about">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
+            <SectionTitle
+              eyebrow="Brand Story"
+              eyebrowCn="关于万璐"
+              title="从缅甸场口，到全球藏家"
+              titleEn="From Burmese mine sites to collectors worldwide."
+              text="万璐翡翠深耕缅甸翡翠原石市场逾十年，长期驻扎曼德勒、帕敢、瑞丽一线货源地，直接与场口建立合作，不经中间商环节，把真正值得收藏的料子留给认真的藏家。"
+              textEn="We operate directly from source markets — no middlemen, no second-hand stones."
+            />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {brandPoints.map(([title, en, text, Icon]) => (
+                <div
+                  className="rounded-lg border border-white/12 bg-white/[0.045] p-5 transition hover:border-gold/25"
+                  key={title}
+                >
+                  <Icon className="h-5 w-5 text-gold" />
+                  <h3 className="mt-4 font-semibold text-bone">{title}</h3>
+                  <p className="en-caption mt-1 text-[10px] text-gold/58">{en}</p>
+                  <p className="mt-2 text-sm leading-6 text-bone/62">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="reveal mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" id="stones">
         <div className="grid gap-7 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
           <SectionTitle
-            eyebrow="Stone Selection"
-            eyebrowCn="原石挑选"
-            title="每块料子，我们都尽量讲透"
-            titleEn="Every stone is explained before it is offered."
-            text="你关心的不是一张好看的照片，而是这块料到底能不能赌、裂在哪里、色有没有进去、切法有没有空间。我们把这些先摆出来。"
-            textEn="You see the origin, light test, color band, cracks, cutting idea, and risk notes before talking price."
+            eyebrow="Featured Selection"
+            eyebrowCn="精品展示"
+            title="精选存档，每一块都有完整记录"
+            titleEn="Selected pieces from thousands of sourced stones."
+            text="我们从历年积累的数千块料子中，精选部分在此展示。每块附有自然光、压灯视频、场口记录和专业评估，供藏家参考欣赏。"
+            textEn="Each piece comes with full video documentation, origin records, and expert assessment for serious collectors."
           />
-          <div className="rounded-lg border border-cinnabar/25 bg-cinnabar/10 p-5 text-sm leading-7 text-bone/72">
-            <div className="mb-2 flex items-center gap-2 text-cinnabar">
-              <BadgeAlert className="h-4 w-4" />
-              先说清楚
+          <div className="rounded-lg border border-gold/20 bg-obsidian/60 p-5">
+            <p className="text-xs text-bone/50">对展示中的精品有意向？</p>
+            <h3 className="mt-2 font-serif text-2xl text-bone">直接联系，私信了解</h3>
+            <p className="mt-3 text-sm leading-6 text-bone/62">
+              告诉我们感兴趣的石头、种水或预算方向，我们为您调取完整档案和视频，安排专人一对一看货。
+            </p>
+            <div className="mt-5 flex flex-col gap-2">
+              <a
+                className="btn-sheen inline-flex items-center justify-center gap-2 rounded-md bg-jade px-4 py-2.5 text-sm font-semibold text-obsidian shadow-glow transition hover:bg-celadon"
+                href="https://wa.me/00000000000"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp 私信
+              </a>
+              <a
+                className="btn-sheen inline-flex items-center justify-center gap-2 rounded-md border border-white/14 bg-white/8 px-4 py-2.5 text-sm font-semibold text-bone transition hover:border-gold/40 hover:bg-white/14"
+                href="https://line.me/ti/p/@wanlujade"
+              >
+                <MessageCircle className="h-4 w-4" />
+                LINE 咨询
+              </a>
             </div>
-            翡翠原石有不确定性。我们会尽量把视频和判断发完整，但不承诺切涨。真正下手前，建议你把自然光、压灯和侧边细节都看一遍。
           </div>
         </div>
         <div className="mt-9 grid gap-5 lg:grid-cols-3">
@@ -394,7 +446,8 @@ export default function Home() {
           <div>
             <p className="en-caption text-xs text-gold">Explore</p>
             <ul className="mt-4 space-y-3 text-sm text-bone/68">
-              <li><a className="nav-underline transition hover:text-celadon" href="#stones">原石展示</a></li>
+              <li><a className="nav-underline transition hover:text-celadon" href="#about">关于万璐</a></li>
+              <li><a className="nav-underline transition hover:text-celadon" href="#stones">精品展示</a></li>
               <li><a className="nav-underline transition hover:text-celadon" href="#videos">看货视频</a></li>
               <li><a className="nav-underline transition hover:text-celadon" href="#live">直播代购</a></li>
               <li><a className="nav-underline transition hover:text-celadon" href="#ai-service">咨询答疑</a></li>
