@@ -3,6 +3,7 @@ import { MessageCircle, Send } from "lucide-react";
 import { Header } from "@/components/Header";
 import { StoneCard } from "@/components/StoneCard";
 import { ContactButtons } from "@/components/ContactButtons";
+import { Assistant } from "@/components/Assistant";
 import { stones } from "@/data/stones";
 
 const heroImage =
@@ -118,6 +119,13 @@ export default function Home() {
               本期到 6 月 30 日 · 每两周一批新料 · Telegram 频道先发
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* AI CONSULT */}
+      <section className="mt-24 sm:mt-32 lg:mt-44" id="consult">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <Assistant />
         </div>
       </section>
 
