@@ -1,43 +1,40 @@
-import { MessageCircle, Radio, Send } from "lucide-react";
+import { MessageCircle, Send } from "lucide-react";
 
-const contacts = [
+const channels = [
   {
-    label: "WhatsApp联系",
+    label: "WhatsApp",
+    sub: "一对一视频",
     href: "https://wa.me/00000000000",
-    icon: MessageCircle,
-    tone: "bg-jade text-obsidian hover:bg-celadon"
+    icon: MessageCircle
   },
   {
-    label: "LINE联系",
+    label: "LINE",
+    sub: "台日询问",
     href: "https://line.me/ti/p/@wanlujade",
-    icon: MessageCircle,
-    tone: "bg-[#06c755] text-obsidian hover:bg-[#33d66f]"
+    icon: MessageCircle
   },
   {
-    label: "Telegram联系",
+    label: "Telegram",
+    sub: "本期上新",
     href: "https://t.me/wanlujade",
-    icon: Send,
-    tone: "bg-white/10 text-bone hover:bg-white/16"
-  },
-  {
-    label: "进入直播间",
-    href: "#live",
-    icon: Radio,
-    tone: "bg-gold text-obsidian hover:bg-[#edcd82]"
+    icon: Send
   }
 ];
 
 export function ContactButtons() {
   return (
-    <div className="flex flex-col gap-3 sm:flex-row">
-      {contacts.map(({ label, href, icon: Icon, tone }) => (
+    <div className="grid grid-cols-3 gap-2 sm:gap-3">
+      {channels.map(({ label, sub, href, icon: Icon }) => (
         <a
-          className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-5 text-sm font-semibold transition ${tone}`}
+          className="group flex flex-col items-center justify-center border border-ink/55 bg-parchment-soft px-2 py-3 text-ink transition hover:bg-ink hover:text-parchment sm:py-4"
           href={href}
           key={label}
         >
-          <Icon aria-hidden className="h-4 w-4" />
-          {label}
+          <Icon aria-hidden className="h-4 w-4 mb-1.5" />
+          <span className="text-[11px] tracking-wide2 uppercase font-medium">{label}</span>
+          <span className="mt-0.5 text-[9px] tracking-label uppercase text-ink-muted transition group-hover:text-parchment/65">
+            {sub}
+          </span>
         </a>
       ))}
     </div>

@@ -1,523 +1,298 @@
 import Image from "next/image";
-import {
-  BadgeAlert,
-  Bot,
-  Database,
-  Gem,
-  Globe2,
-  MessageCircle,
-  Radio,
-  ScanLine,
-  Send,
-  Sparkles,
-  Video
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { MessageCircle, Send } from "lucide-react";
 import { Header } from "@/components/Header";
 import { StoneCard } from "@/components/StoneCard";
+import { ContactButtons } from "@/components/ContactButtons";
 import { stones } from "@/data/stones";
 
 const heroImage =
   "https://upload.wikimedia.org/wikipedia/commons/9/96/Jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2814925512338%29.jpg";
 
-const featuredImage =
-  "https://upload.wikimedia.org/wikipedia/commons/3/3f/Raw_jadeite_jade_-_Burke_Museum_-_01.jpg";
-
-const proofPoints: Array<[string, string, string, LucideIcon]> = [
-  ["源头实拍", "Real source video", "能发视频的料子，才值得继续聊", Gem],
-  ["先看风险", "Risk first", "裂、棉、色带和打灯表现都会说清楚", ScanLine],
-  ["私下细看", "Private review", "WhatsApp / LINE / TG 发原视频，一块一块看", MessageCircle]
-];
-
-const heroStats: Array<[string, string]> = [
-  ["10+", "年缅甸场口经验"],
-  ["3000+", "块料子实拍存档"],
-  ["全球", "华人藏家直邮"]
-];
-
-const videoShots = [
-  ["开窗看肉", "Window view", "看颜色有没有进去，也看肉够不够细。"],
-  ["打灯看底", "Light test", "水头、棉、裂，灯下一圈一圈带你看。"],
-  ["切前商量", "Cutting plan", "能不能切、怎么切，先把风险摊开说。"],
-  ["切后复盘", "Result review", "切涨切垮都复盘，做长期信任。"]
-];
-
-const liveChannels: Array<[string, string, string, LucideIcon]> = [
-  ["TikTok直播", "Live stone selection", "现场看料、压灯、问价，适合先快速筛选。", Radio],
-  ["YouTube回放", "Long-form review", "想慢慢研究的客户，可以反复看细节。", Video],
-  ["LINE / Telegram", "Private updates", "新料、直播预告、切料结果会先发在频道。", Send],
-  ["看货记录", "Stone record", "每块料子的重量、场口、视频和沟通记录都会留档。", Database]
-];
-
-const workflow = [
-  ["挑料", "Select", "先筛掉明显风险太高的料"],
-  ["拍清楚", "Record", "自然光、压灯、侧面都拍"],
-  ["讲明白", "Explain", "优点说，问题也说"],
-  ["再成交", "Confirm", "确认视频和风险后再决定"]
-];
-
 export default function Home() {
   return (
-    <main className="pb-24 md:pb-0">
+    <main id="top" className="pb-28 lg:pb-0">
       <Header />
-      <section className="relative overflow-hidden border-b border-gold/15 pt-28">
-        <div className="absolute inset-0">
-          <Image
-            alt="翡翠原石切面微距"
-            className="object-cover opacity-48 saturate-[1.14] contrast-[1.08]"
-            fill
-            priority
-            sizes="100vw"
-            src={heroImage}
-            unoptimized
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,9,8,.70)_0%,rgba(7,9,8,.94)_72%,#070908_100%),linear-gradient(90deg,#070908_0%,rgba(7,9,8,.86)_35%,rgba(7,9,8,.28)_100%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/35 to-transparent" />
-        </div>
 
-        <div className="relative mx-auto grid min-h-[calc(100svh-7rem)] max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[.86fr_1.14fr] lg:items-center lg:px-8 lg:py-14">
-          <div>
-            <div className="hero-rise hero-rise-1 mb-4 inline-flex items-center gap-2 rounded-md border border-gold/35 bg-obsidian/72 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-gold backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5 animate-shimmer" />
-              Source Jadeite / Real Video First
-            </div>
-            <h1 className="hero-rise hero-rise-1 serif-display text-balance text-[44px] leading-[1.04] text-bone sm:text-6xl lg:text-7xl">
-              源头<span className="text-gold-foil">翡翠原石</span>
-              <span className="mt-1 block text-celadon text-jade-glow">先看清楚，再决定</span>
-            </h1>
-            <p className="hero-rise hero-rise-2 mt-4 max-w-2xl font-serif text-xl leading-8 text-gold/88">
-              Source jadeite rough stones. See the real video before you decide.
-            </p>
-            <p className="hero-rise hero-rise-2 mt-5 max-w-2xl text-base leading-8 text-bone/78 sm:text-lg">
-              我们做缅甸翡翠原石、半明料、改口料和高端色料。你不用只看几张漂亮图，
-              可以先看自然光、压灯、开窗和侧面视频，把优点和风险都看明白，再谈价格。
-            </p>
-            <p className="hero-rise hero-rise-2 mt-3 max-w-2xl text-sm leading-7 text-bone/52">
-              Burmese jadeite rough stones, semi-opened pieces, cut-window stones, and fine color material for Chinese collectors worldwide.
-            </p>
-            <div className="hero-rise hero-rise-3 mt-7 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="https://wa.me/00000000000" icon={MessageCircle}>
-                发我想看的料子
-              </PrimaryLink>
-              <SecondaryLink href="https://line.me/ti/p/@wanlujade" icon={MessageCircle}>
-                LINE 咨询
-              </SecondaryLink>
-              <SecondaryLink href="https://t.me/wanlujade" icon={Send}>
-                看最新上新
-              </SecondaryLink>
-            </div>
-            <dl className="hero-rise hero-rise-3 mt-8 grid max-w-2xl grid-cols-3 divide-x divide-white/10 rounded-lg border border-white/10 bg-obsidian/55 shadow-ink backdrop-blur">
-              {heroStats.map(([value, label]) => (
-                <div className="px-4 py-4 text-center" key={label}>
-                  <dt className="figure-num font-serif text-3xl text-gold-foil sm:text-4xl">{value}</dt>
-                  <dd className="mt-1 text-[11px] leading-4 text-bone/56">{label}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="hero-rise hero-rise-3 mt-6 grid gap-3 sm:grid-cols-3">
-              {proofPoints.map(([title, en, text, Icon], index) => (
-                <div
-                  className="card-depth relative rounded-lg border border-white/12 bg-obsidian/62 p-4 backdrop-blur transition hover:border-gold/30 hover:bg-obsidian/80"
-                  key={title}
-                >
-                  <div className="flex items-center justify-between">
-                    <Icon className="h-5 w-5 text-gold" />
-                    <span className="en-caption text-[9px] text-gold/45">0{index + 1}</span>
-                  </div>
-                  <p className="mt-3 font-semibold text-bone">{title}</p>
-                  <p className="en-caption mt-1 text-[10px] text-gold/58">{en}</p>
-                  <p className="mt-1 text-xs leading-5 text-bone/58">{text}</p>
-                </div>
-              ))}
-            </div>
+      {/* HERO — single image, single statement */}
+      <section className="relative pt-24 sm:pt-28 lg:pt-32">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="hero-rise hero-rise-1 mb-4 flex items-center gap-3">
+            <span className="rule w-10" />
+            <span className="label tnum">Wanlu&nbsp;Jade · Spring 2026</span>
+            <span className="rule hidden flex-1 sm:block" />
           </div>
 
-          <div className="rounded-lg border border-gold/20 bg-[#090d0b]/86 p-3 shadow-glow backdrop-blur">
-            <div className="relative overflow-hidden rounded-md border border-white/12 bg-obsidian">
-              <div className="relative aspect-[4/5] sm:aspect-[16/11]">
-                <Image
-                  alt="原石直播验货画面"
-                  className="object-cover saturate-[1.12] contrast-[1.08]"
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 54vw, 100vw"
-                  src={featuredImage}
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,9,8,.90)_0%,transparent_48%),linear-gradient(90deg,rgba(7,9,8,.55),transparent_55%)]" />
-                <div className="scan-lines pointer-events-none absolute inset-0 opacity-25" />
-                <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-md bg-cinnabar px-3 py-2 text-xs font-semibold text-white shadow-[0_8px_20px_-6px_rgba(184,75,63,0.55)]">
-                    <span className="pulse-dot" aria-hidden />
-                    LIVE
-                  </span>
-                  <span className="rounded-md border border-jade/35 bg-obsidian/76 px-3 py-2 text-xs text-celadon backdrop-blur">
-                    风险先说明
-                  </span>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-xs uppercase tracking-[0.22em] text-gold">
-                    Tonight viewing
-                  </p>
-                  <h2 className="mt-2 font-serif text-3xl text-bone sm:text-4xl">
-                    今晚可视频看货
-                  </h2>
-                  <div className="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
-                    {["看自然光", "看压灯", "问底价"].map((item) => (
-                      <span className="rounded-md bg-white/10 px-2 py-2 text-bone/78" key={item}>
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="grid border-t border-white/10 bg-obsidian/94 sm:grid-cols-4">
-                {[
-                  ["看货方式", "视频"],
-                  ["重点", "打灯"],
-                  ["风险", "先讲"],
-                  ["状态", "可约"]
-                ].map(([label, value]) => (
-                  <div className="border-white/10 p-4 sm:border-r" key={label}>
-                    <p className="text-xs text-bone/45">{label}</p>
-                    <p className="mt-1 font-serif text-xl text-celadon">{value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <h1 className="hero-rise hero-rise-2 display text-[44px] leading-[1.02] tracking-[-0.02em] text-ink sm:text-[68px] lg:text-[96px]">
+            源头翡翠
+            <span className="block display-italic font-normal text-celadon">先看清楚</span>
+            <span className="block">再决定一切。</span>
+          </h1>
 
-      <section className="relative bg-[#0b0f0d]">
-        <div className="gold-rule-soft absolute inset-x-0 top-0" />
-        <div className="mx-auto grid max-w-7xl gap-px border-x border-white/8 bg-white/8 sm:grid-cols-4">
-          {[
-            ["01", "原石 / 半明料 / 高货色料"],
-            ["02", "发自然光和打灯视频"],
-            ["03", "直播间现场复核"],
-            ["04", "确认风险后再成交"]
-          ].map(([num, text]) => (
-            <div className="group relative bg-[#0b0f0d] p-5 transition hover:bg-[#0d1311]" key={num}>
-              <p className="figure-num text-xs tracking-jade text-gold">{num}</p>
-              <p className="mt-2 text-sm leading-6 text-bone/72">{text}</p>
-              <span className="absolute right-5 top-5 h-1.5 w-1.5 rounded-full bg-gold/30 transition group-hover:bg-gold/80" />
-            </div>
-          ))}
-        </div>
-        <div className="gold-rule-soft absolute inset-x-0 bottom-0" />
-      </section>
-
-      <section className="reveal mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" id="stones">
-        <div className="grid gap-7 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
-          <SectionTitle
-            eyebrow="Stone Selection"
-            eyebrowCn="原石挑选"
-            title="每块料子，我们都尽量讲透"
-            titleEn="Every stone is explained before it is offered."
-            text="你关心的不是一张好看的照片，而是这块料到底能不能赌、裂在哪里、色有没有进去、切法有没有空间。我们把这些先摆出来。"
-            textEn="You see the origin, light test, color band, cracks, cutting idea, and risk notes before talking price."
-          />
-          <div className="rounded-lg border border-cinnabar/25 bg-cinnabar/10 p-5 text-sm leading-7 text-bone/72">
-            <div className="mb-2 flex items-center gap-2 text-cinnabar">
-              <BadgeAlert className="h-4 w-4" />
-              先说清楚
-            </div>
-            翡翠原石有不确定性。我们会尽量把视频和判断发完整，但不承诺切涨。真正下手前，建议你把自然光、压灯和侧边细节都看一遍。
-          </div>
-        </div>
-        <div className="mt-9 grid gap-5 lg:grid-cols-3">
-          {stones.map((stone) => (
-            <StoneCard key={stone.id} stone={stone} />
-          ))}
-        </div>
-      </section>
-
-      <section className="reveal border-y border-white/10 bg-[#101413] py-16" id="videos">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-9 lg:grid-cols-[.72fr_1.28fr]">
-          <SectionTitle
-            eyebrow="Video Proof"
-            eyebrowCn="视频复核"
-            title="看料，视频比话更重要"
-            titleEn="For rough stones, video tells more than words."
-            text="好的料子不怕多拍。开窗、打灯、侧面、皮壳、切面，我们尽量用视频把真实状态交代清楚。"
-            textEn="Window, light, side view, shell, and cut surface are recorded so you can review calmly."
-          />
-            <div className="grid gap-3 sm:grid-cols-2">
-              {videoShots.map(([title, en, text], index) => (
-                <div
-                  className="card-depth gold-corners relative rounded-lg border border-white/12 bg-[linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025))] p-5 transition hover:border-gold/30"
-                  key={title}
-                >
-                  <p className="figure-num text-xs tracking-[0.22em] text-gold">
-                    DETAIL {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-8 font-serif text-3xl text-bone">{title}</h3>
-                  <p className="en-caption mt-1 text-[10px] text-gold/58">{en}</p>
-                  <p className="mt-3 text-sm leading-6 text-bone/62">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="reveal mx-auto grid max-w-7xl gap-9 px-4 py-16 sm:px-6 lg:grid-cols-[.72fr_1.28fr] lg:px-8" id="live">
-        <div>
-          <SectionTitle
-            eyebrow="Live Viewing"
-            eyebrowCn="直播看货"
-            title="不方便到现场，就用直播一起看"
-            titleEn="If you cannot be there, we bring the stone to the camera."
-            text="曼德勒、瑞丽、夜市、切料现场，我们尽量把看货过程放到镜头前。你可以直接问细节，也可以要求补拍。"
-            textEn="Ask for details in real time, request extra angles, and review before making a decision."
-          />
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <PrimaryLink href="#live" icon={Radio}>
-              预约直播看货
-            </PrimaryLink>
-            <SecondaryLink href="https://t.me/wanlujade" icon={Send}>
-              加入上新频道
-            </SecondaryLink>
-          </div>
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {liveChannels.map(([title, en, text, Icon]) => (
-            <div
-              className="card-depth group relative rounded-lg border border-white/12 bg-white/[0.045] p-5 transition hover:border-celadon/30"
-              key={title}
-            >
-              <div className="flex items-center justify-between">
-                <Icon className="h-6 w-6 text-celadon transition group-hover:text-gold" />
-                <span className="h-1.5 w-1.5 rounded-full bg-celadon/40 transition group-hover:bg-gold/80" />
-              </div>
-              <h3 className="mt-5 font-serif text-2xl text-bone">{title}</h3>
-              <p className="en-caption mt-1 text-[10px] text-gold/58">{en}</p>
-              <p className="mt-3 text-sm leading-6 text-bone/64">{text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="reveal border-t border-white/10 bg-ink py-16" id="ai-service">
-        <div className="mx-auto grid max-w-7xl gap-9 px-4 sm:px-6 lg:grid-cols-[.72fr_1.28fr] lg:px-8">
-          <SectionTitle
-            eyebrow="Ask Before Buying"
-            eyebrowCn="先问清楚"
-            title="不懂可以先问，别急着下手"
-            titleEn="Ask first. A serious stone should stand up to questions."
-            text="场口、种水、色料、发货、海外运输、风险说明，都可以先问清楚。真正要定料时，我们会把你带到人工一对一确认。"
-            textEn="Origin, water, color, shipping, and risks can all be checked before a private deal."
-          />
-          <div className="rounded-lg border border-jade/22 bg-jade/8 p-5">
-            <div className="mb-5 flex items-center gap-3">
-              <div className="grid h-11 w-11 place-items-center rounded-md bg-jade text-obsidian">
-                <Bot className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="font-semibold text-bone">Wanlu 看货助手</p>
-                <p className="text-sm text-celadon/72">先答疑，再安排人工看货</p>
-              </div>
-            </div>
-            <div className="grid gap-3 text-sm leading-6 md:grid-cols-2">
-              <p className="rounded-lg bg-white/8 p-4 text-bone/78">
-                客户：这块料子适合切手镯吗？
-              </p>
-              <p className="rounded-lg bg-obsidian/60 p-4 text-bone/78">
-                回复：先别急着定。要看开窗面、侧边暗裂和压灯表现。我们可以先发自然光、压灯和侧面视频，你看完再决定。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="reveal mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <SectionTitle
-            eyebrow="How We Work"
-            eyebrowCn="我们的方式"
-            title="长期做生意，靠的是把话说在前面"
-            titleEn="Long-term trust starts with clear words before the deal."
-            text="翡翠原石不是标准品。我们希望你买之前看得足够清楚，买之后也能把每一次切料结果复盘下来。"
-            textEn="Rough jadeite is never a standard product. We prefer careful review over rushed decisions."
-          />
-        <div className="mt-8 grid gap-3 md:grid-cols-4">
-          {workflow.map(([name, en, text], index) => (
-            <div
-              className="step-connector card-depth relative rounded-lg border border-white/12 bg-white/[0.045] p-5 transition hover:border-gold/30"
-              key={name}
-            >
-              <div className="flex items-baseline justify-between">
-                <p className="font-serif text-2xl text-gold">{name}</p>
-                <span className="figure-num en-caption text-[10px] text-gold/50">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <p className="en-caption mt-1 text-[10px] text-bone/42">{en}</p>
-              <p className="mt-3 min-h-12 text-sm leading-6 text-bone/66">{text}</p>
-              <Gem className="mt-4 h-5 w-5 text-celadon" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="reveal relative overflow-hidden border-t border-gold/20 bg-[#0a0e0c]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(0,166,125,.18),transparent_55%),radial-gradient(circle_at_85%_120%,rgba(215,182,109,.12),transparent_45%)]" />
-        <div className="gold-rule-soft absolute inset-x-0 top-0" />
-        <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
-          <div className="mx-auto mb-5 h-px w-20 bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
-          <p className="en-caption text-xs text-gold tracking-seal">Start Viewing</p>
-          <h2 className="text-balance mt-4 serif-display text-4xl leading-tight text-bone sm:text-5xl">
-            想看的料子，<span className="text-gold-foil">现在就发给我们</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl leading-8 text-bone/70">
-            告诉我们想要的种水、颜色、预算和用途，我们挑出对应的料子，发自然光与压灯视频，先看清楚再谈价格。
+          <p className="hero-rise hero-rise-3 mt-6 max-w-xl serif text-[16px] leading-[1.8] text-ink-soft sm:text-[18px]">
+            一块石头被搬到光下，慢慢看皮、看色、看水头、看裂。
+            我们做的，是在你下决定之前，让每一块原石都先被看明白。
           </p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <PrimaryLink href="https://wa.me/00000000000" icon={MessageCircle}>
-              WhatsApp 发需求
-            </PrimaryLink>
-            <SecondaryLink href="https://line.me/ti/p/@wanlujade" icon={MessageCircle}>
-              LINE 咨询
-            </SecondaryLink>
-            <SecondaryLink href="https://t.me/wanlujade" icon={Send}>
-              Telegram 看上新
-            </SecondaryLink>
+          <p className="hero-rise hero-rise-3 mt-3 display-italic text-[14px] leading-[1.6] text-ink-muted sm:text-[15px]">
+            Burmese jadeite, brought to the light. Three lots for spring.
+          </p>
+
+          <div className="hero-rise hero-rise-4 mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
+            <a className="btn-ink" href="#selection">
+              本期甄选 · View Lots
+            </a>
+            <a className="btn-outline" href="#inquire">
+              询问 · Inquire
+            </a>
+          </div>
+        </div>
+
+        {/* Hero plate */}
+        <div className="hero-rise hero-rise-4 mt-12 sm:mt-16">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <div className="frame relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/9]">
+              <Image
+                alt="翡翠原石巨幅图版"
+                className="object-cover"
+                fill
+                priority
+                sizes="100vw"
+                src={heroImage}
+                unoptimized
+              />
+            </div>
+            <div className="mt-3 flex items-center justify-between text-[10px] tracking-label uppercase text-ink-muted">
+              <span>Plate · 图版 I</span>
+              <span className="tnum">No. 001 — 003 / Spring 2026</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/10 bg-obsidian">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
+      {/* MANIFESTO */}
+      <section className="relative mt-24 sm:mt-32 lg:mt-44">
+        <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+          <p className="label text-ink-muted">On the way we work · 我们怎么做生意</p>
+          <div className="mx-auto mt-5 h-px w-16 bg-ink/40" />
+          <p className="pull-quote mt-8 text-[22px] leading-[1.55] text-ink sm:text-[28px] lg:text-[32px]">
+            翡翠原石没有捷径。<br />
+            灯下看一遍，自然光看一遍，<br />
+            侧边和裂再看一遍，<br />
+            <span className="text-celadon">然后才到价格。</span>
+          </p>
+          <p className="display-italic mt-6 text-[14px] leading-[1.6] text-ink-muted sm:text-[15px]">
+            There are no shortcuts in rough jade. Daylight, backlight,<br className="hidden sm:block" />
+            then the cracks — and only then the price.
+          </p>
+        </div>
+      </section>
+
+      {/* SELECTION */}
+      <section className="mt-24 sm:mt-32 lg:mt-44" id="selection">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-ink/85 pb-5">
+            <div>
+              <p className="label text-ink-muted">Catalogue I · 本期图录</p>
+              <h2 className="display mt-2 text-[36px] leading-none text-ink sm:text-[52px] lg:text-[64px]">
+                本期甄选
+              </h2>
+              <p className="display-italic mt-2 text-[15px] text-ink-muted sm:text-[18px]">
+                Three lots, considered carefully.
+              </p>
+            </div>
+            <p className="tnum text-[11px] tracking-label uppercase text-ink-muted">
+              Lot 001 — 003 / Spring 2026
+            </p>
+          </div>
+
+          <div className="mt-12 space-y-20 sm:space-y-28 lg:space-y-36">
+            {stones.map((stone, index) => (
+              <StoneCard index={index} key={stone.id} stone={stone} />
+            ))}
+          </div>
+
+          <div className="mt-20 border-t border-ink/85 pt-6 text-center">
+            <p className="display-italic text-[14px] leading-[1.7] text-ink-muted sm:text-[15px]">
+              Catalogue closes 30 June 2026. More lots arrive each fortnight on Telegram.
+            </p>
+            <p className="serif mt-1 text-[14px] text-ink-soft sm:text-[15px]">
+              本期到 6 月 30 日 · 每两周一批新料 · Telegram 频道先发
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* PROVENANCE */}
+      <section className="mt-24 sm:mt-32 lg:mt-44" id="provenance">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <p className="label text-ink-muted">Provenance · 来路与方法</p>
+              <h2 className="display mt-3 text-[34px] leading-[1.1] text-ink sm:text-[42px] lg:text-[52px]">
+                这块石头，<br />
+                是这样被看到的。
+              </h2>
+              <p className="display-italic mt-3 text-[15px] leading-snug text-ink-muted sm:text-[17px]">
+                How a stone arrives at your screen.
+              </p>
+            </div>
+
+            <ol className="lg:col-span-8">
+              {steps.map((step, index) => (
+                <li
+                  className="grid grid-cols-[auto_1fr] gap-5 border-t border-ink/15 py-7 sm:gap-8 sm:py-9"
+                  key={step.zh}
+                >
+                  <span className="tnum display-italic text-[28px] leading-none text-celadon sm:text-[40px]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="display text-[22px] leading-tight text-ink sm:text-[28px]">
+                      {step.zh}
+                    </h3>
+                    <p className="display-italic mt-1 text-[13px] text-ink-muted sm:text-[15px]">
+                      {step.en}
+                    </p>
+                    <p className="serif mt-3 text-[14px] leading-[1.8] text-ink-soft sm:text-[15px]">
+                      {step.note}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONY / TRUST */}
+      <section className="mt-24 sm:mt-32 lg:mt-44">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="rule-double" />
+          <div className="grid gap-10 py-12 sm:grid-cols-3 sm:gap-12 sm:py-16">
+            {trust.map((item) => (
+              <div className="text-center sm:text-left" key={item.zh}>
+                <p className="tnum display text-[44px] leading-none text-ink sm:text-[56px]">
+                  {item.num}
+                </p>
+                <p className="display-italic mt-3 text-[14px] text-celadon">
+                  {item.en}
+                </p>
+                <p className="serif mt-2 text-[15px] leading-[1.7] text-ink-soft sm:text-[16px]">
+                  {item.zh}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="rule" />
+        </div>
+      </section>
+
+      {/* INQUIRE */}
+      <section className="mt-24 sm:mt-32 lg:mt-40" id="inquire">
+        <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+          <p className="label text-ink-muted">Inquire · 私下询问</p>
+          <h2 className="display mt-4 text-[36px] leading-[1.05] text-ink sm:text-[52px] lg:text-[64px]">
+            把想看的料子<br />
+            <span className="display-italic text-celadon">告诉我们。</span>
+          </h2>
+          <p className="serif mt-6 text-[15px] leading-[1.85] text-ink-soft sm:text-[17px]">
+            种水、颜色、用途、预算 —— 都可以先说。我们挑出对应的料子，
+            发自然光、压灯和侧面视频，看完再谈价格。不催，不绕。
+          </p>
+          <p className="display-italic mt-3 text-[14px] leading-[1.65] text-ink-muted sm:text-[15px]">
+            Tell us water, colour, intent and budget. We will send video before we talk price.
+          </p>
+
+          <div className="mt-10">
+            <ContactButtons />
+          </div>
+
+          <p className="mt-10 display-italic text-[12px] leading-[1.65] text-ink-muted sm:text-[13px]">
+            翡翠原石具有天然不确定性 · 看货判断仅供参考 · 不构成切涨承诺<br />
+            Rough jadeite carries natural uncertainty. Notes are advisory, not guarantees.
+          </p>
+        </div>
+      </section>
+
+      <footer className="mt-24 border-t border-ink/15 sm:mt-32">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-end sm:justify-between sm:px-8">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-md border border-gold/45 bg-white/6">
-                <Gem className="h-5 w-5 text-celadon" />
-              </span>
+              <span className="seal h-10 w-10 text-[12px]">萬璐</span>
               <span>
-                <span className="block font-serif text-lg tracking-[0.12em] text-bone">
-                  WANLU <span className="text-gold-foil">JADE</span>
-                </span>
-                <span className="block text-[10px] uppercase tracking-[0.24em] text-celadon/70">
-                  万璐翡翠 · Jadeite Source
+                <span className="block font-serif tracking-wide2 text-ink">WANLU JADE</span>
+                <span className="block text-[10px] tracking-label uppercase text-ink-muted">
+                  万璐翡翠 · Source Jadeite
                 </span>
               </span>
             </div>
-            <p className="mt-5 max-w-sm text-sm leading-7 text-bone/60">
-              缅甸翡翠原石、半明料、改口料与高端色料。源头看货，视频复核，把风险讲在前面，做长期信任。
+            <p className="mt-5 max-w-xs serif text-[14px] leading-[1.75] text-ink-soft">
+              缅甸翡翠原石 · 半明料 · 改口料 · 高端色料。源头看货，视频复核，不催不绕。
             </p>
           </div>
-          <div>
-            <p className="en-caption text-xs text-gold">Channels</p>
-            <ul className="mt-4 space-y-3 text-sm text-bone/68">
-              <li><a className="nav-underline transition hover:text-celadon" href="https://wa.me/00000000000">WhatsApp 一对一看货</a></li>
-              <li><a className="nav-underline transition hover:text-celadon" href="https://line.me/ti/p/@wanlujade">LINE 咨询答疑</a></li>
-              <li><a className="nav-underline transition hover:text-celadon" href="https://t.me/wanlujade">Telegram 上新频道</a></li>
-            </ul>
-          </div>
-          <div>
-            <p className="en-caption text-xs text-gold">Explore</p>
-            <ul className="mt-4 space-y-3 text-sm text-bone/68">
-              <li><a className="nav-underline transition hover:text-celadon" href="#stones">原石展示</a></li>
-              <li><a className="nav-underline transition hover:text-celadon" href="#videos">看货视频</a></li>
-              <li><a className="nav-underline transition hover:text-celadon" href="#live">直播代购</a></li>
-              <li><a className="nav-underline transition hover:text-celadon" href="#ai-service">咨询答疑</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-white/8">
-          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-bone/40 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-            <p>© {new Date().getFullYear()} Wanlu Jade 万璐翡翠. All rights reserved.</p>
-            <p>翡翠原石具有天然不确定性，看货判断仅供参考，不构成切涨承诺。</p>
+          <div className="text-[11px] tracking-label uppercase text-ink-muted sm:text-right">
+            <p>© {new Date().getFullYear()} Wanlu Jade · 万璐翡翠</p>
+            <p className="mt-2 display-italic normal-case tracking-normal text-[13px]">
+              All stones are real. All risks are stated. All prices are private.
+            </p>
           </div>
         </div>
       </footer>
 
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/12 bg-obsidian/94 p-3 backdrop-blur md:hidden">
+      {/* Mobile sticky inquire bar */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-ink/20 bg-parchment/95 px-4 py-3 backdrop-blur-md lg:hidden">
         <div className="grid grid-cols-3 gap-2">
-          <PrimaryLink href="https://wa.me/00000000000" icon={MessageCircle}>
-            WhatsApp
-          </PrimaryLink>
-          <SecondaryLink href="https://line.me/ti/p/@wanlujade" icon={MessageCircle}>
-            LINE
-          </SecondaryLink>
-          <SecondaryLink href="https://t.me/wanlujade" icon={Send}>
-            Telegram
-          </SecondaryLink>
+          <a
+            className="flex flex-col items-center justify-center gap-0.5 bg-ink py-2.5 text-parchment"
+            href="https://wa.me/00000000000"
+          >
+            <MessageCircle className="h-4 w-4" />
+            <span className="text-[10px] tracking-wide2 uppercase">WhatsApp</span>
+          </a>
+          <a
+            className="flex flex-col items-center justify-center gap-0.5 border border-ink/55 py-2.5 text-ink"
+            href="https://line.me/ti/p/@wanlujade"
+          >
+            <MessageCircle className="h-4 w-4" />
+            <span className="text-[10px] tracking-wide2 uppercase">LINE</span>
+          </a>
+          <a
+            className="flex flex-col items-center justify-center gap-0.5 border border-ink/55 py-2.5 text-ink"
+            href="https://t.me/wanlujade"
+          >
+            <Send className="h-4 w-4" />
+            <span className="text-[10px] tracking-wide2 uppercase">Telegram</span>
+          </a>
         </div>
       </div>
     </main>
   );
 }
 
-function PrimaryLink({
-  href,
-  icon: Icon,
-  children
-}: {
-  href: string;
-  icon: LucideIcon;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      className="btn-sheen inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-jade px-3 text-xs font-semibold text-obsidian shadow-glow transition hover:bg-celadon sm:px-5 sm:text-sm"
-      href={href}
-    >
-      <Icon className="h-4 w-4" />
-      {children}
-    </a>
-  );
-}
+const steps = [
+  {
+    zh: "在场口看货",
+    en: "On the ground",
+    note: "曼德勒、瑞丽、夜市、切料现场。先用眼睛、再用手、最后用灯。皮壳是真是假，砂感粗细，蟒带方向 —— 都在这里定下来。"
+  },
+  {
+    zh: "把每一面拍下来",
+    en: "Recorded, face by face",
+    note: "自然光、强光、压灯、侧面、皮壳、开窗。一块石头四到六段视频。我们不发滤镜过的照片。"
+  },
+  {
+    zh: "先说风险",
+    en: "Risk first, always",
+    note: "裂、棉、色带是否贯穿、变种可能、切前的判断、切后的复盘 —— 全部写出来发你。"
+  },
+  {
+    zh: "确认了再谈价",
+    en: "Price comes last",
+    note: "你看明白这块料是什么、不是什么之后，我们再聊价钱、聊运输、聊付款。"
+  }
+];
 
-function SecondaryLink({
-  href,
-  icon: Icon,
-  children
-}: {
-  href: string;
-  icon: LucideIcon;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      className="btn-sheen inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/14 bg-white/8 px-3 text-xs font-semibold text-bone transition hover:border-gold/40 hover:bg-white/14 sm:px-5 sm:text-sm"
-      href={href}
-    >
-      <Icon className="h-4 w-4" />
-      {children}
-    </a>
-  );
-}
-
-function SectionTitle({
-  eyebrow,
-  eyebrowCn,
-  title,
-  titleEn,
-  text,
-  textEn
-}: {
-  eyebrow: string;
-  eyebrowCn?: string;
-  title: string;
-  titleEn?: string;
-  text: string;
-  textEn?: string;
-}) {
-  return (
-    <div className="max-w-3xl">
-      <p className="eyebrow-rule en-caption text-xs text-gold">
-        {eyebrowCn ? `${eyebrowCn} / ${eyebrow}` : eyebrow}
-      </p>
-      <h2 className="text-balance mt-3 serif-display text-4xl leading-tight text-bone sm:text-5xl">
-        {title}
-      </h2>
-      {titleEn ? (
-        <p className="mt-3 font-serif italic text-xl leading-7 text-gold/82">{titleEn}</p>
-      ) : null}
-      <p className="mt-5 leading-8 text-bone/68">{text}</p>
-      {textEn ? <p className="mt-3 text-sm leading-7 text-bone/48">{textEn}</p> : null}
-    </div>
-  );
-}
+const trust = [
+  { num: "10+", en: "Years on the ground", zh: "缅甸场口经验" },
+  { num: "3000+", en: "Stones archived on video", zh: "块料子视频存档" },
+  { num: "全球", en: "Direct to collectors", zh: "华人藏家直邮" }
+];
