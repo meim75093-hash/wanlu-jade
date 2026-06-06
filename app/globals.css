@@ -4,8 +4,9 @@
 
 :root {
   color-scheme: light;
-  --font-sans: "Inter", "Avenir Next", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
-  --font-serif: var(--font-display), "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+  --font-sans: var(--font-sans-ui), "Inter", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-serif: var(--font-display), var(--font-cn-serif), "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+  --font-display-cn: var(--font-cn-display), var(--font-display), var(--font-cn-serif), "Source Han Serif SC", "Noto Serif SC", serif;
   --ink: 21 17 13;
   --parchment: 244 239 228;
 }
@@ -21,6 +22,7 @@ html {
 }
 
 body {
+  font-synthesis: none;
   margin: 0;
   min-height: 100vh;
   background: #f4efe4;
@@ -29,11 +31,21 @@ body {
     radial-gradient(circle at 88% 12%, rgba(139, 46, 34, 0.025), transparent 28rem);
   color: #15110d;
   font-family: var(--font-serif);
-  font-feature-settings: "kern", "liga", "ss01", "tnum" off;
+  font-feature-settings: "kern", "liga", "ss01", "palt", "tnum" off;
+  font-variant-east-asian: proportional-width;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+  /* Slightly relaxed line-height for Chinese reading rhythm */
+  line-height: 1.75;
+}
+
+/* Chinese characters benefit from a touch of letter spacing at small body sizes;
+   at very large display sizes we tighten to feel intentional and editorial. */
+:lang(zh-CN),
+[lang="zh-CN"] {
+  letter-spacing: 0.01em;
 }
 
 /* Subtle paper grain — like aged catalog stock */
@@ -84,22 +96,35 @@ a {
 }
 
 /* Auction catalogue typography — restrained, classical, breathing */
-.serif {
-  font-family: var(--font-serif);
-}
-
+/* Upright display — strong, credible headlines.
+   Latin renders in Cormorant 500; CJK renders in Noto Serif SC 500 — paired weight,
+   so a mixed line looks balanced. */
 .display {
   font-family: var(--font-serif);
   font-weight: 500;
-  letter-spacing: -0.018em;
-  font-feature-settings: "ss01", "kern", "liga";
+  letter-spacing: -0.008em;
+  font-feature-settings: "ss01", "kern", "liga", "palt";
+  font-variant-east-asian: proportional-width;
+  line-height: 1.1;
 }
 
+/* Italic display — Latin gets true italic Cormorant; CJK has no italic, so we
+   substitute the thin literati-style ZCOOL XiaoWei to create the same visual
+   distinction (upright vs italic) in both scripts. */
 .display-italic {
-  font-family: var(--font-serif);
+  font-family: var(--font-display), var(--font-cn-display), var(--font-cn-serif), Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+  font-feature-settings: "palt";
+}
+
+/* Body Chinese serif — used for running paragraphs */
+.serif {
+  font-family: var(--font-serif);
+  font-feature-settings: "kern", "liga", "palt";
+  font-variant-east-asian: proportional-width;
 }
 
 .label {

@@ -23,7 +23,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Arial", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"]
+        serif: ["var(--font-serif)", "Georgia", "serif"],
+        "display-cn": ["var(--font-display-cn)", "Georgia", "serif"]
       },
       letterSpacing: {
         seal: "0.32em",
