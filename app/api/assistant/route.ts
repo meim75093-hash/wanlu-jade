@@ -4,7 +4,7 @@ import { stones } from "@/data/stones";
 export const runtime = "edge";
 
 const GATEWAY_URL = "https://ai-gateway.vercel.sh/v1/chat/completions";
-const MODEL = process.env.AI_MODEL ?? "anthropic/claude-sonnet-4-6";
+const MODEL = process.env.AI_MODEL ?? "openai/gpt-4o-mini";
 
 type AssistantReply = {
   reply: string;

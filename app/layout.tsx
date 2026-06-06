@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond } from "next/font/google";
+import { Cormorant_Garamond, Noto_Serif_SC, ZCOOL_XiaoWei, Inter } from "next/font/google";
 import "./globals.css";
 
 const displaySerif = Cormorant_Garamond({
@@ -7,6 +7,29 @@ const displaySerif = Cormorant_Garamond({
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-display",
+  display: "swap"
+});
+
+const cnSerif = Noto_Serif_SC({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-cn-serif",
+  display: "swap",
+  preload: false
+});
+
+const cnDisplay = ZCOOL_XiaoWei({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-cn-display",
+  display: "swap",
+  preload: false
+});
+
+const sans = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans-ui",
   display: "swap"
 });
 
@@ -39,7 +62,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className={displaySerif.variable}>
+    <html
+      lang="zh-CN"
+      className={`${displaySerif.variable} ${cnSerif.variable} ${cnDisplay.variable} ${sans.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
