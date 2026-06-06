@@ -1,94 +1,90 @@
 export type Stone = {
   id: string;
-  title: string;
-  type: string;
-  weight: string;
+  lot: string;
+  titleZh: string;
+  titleEn: string;
+  category: string;
   origin: string;
-  priceSignal: string;
+  weight: string;
   cover: string;
-  videoLabel: string;
-  tags: string[];
-  shell: string;
-  colorBand: string;
-  light: string;
-  risk: string;
-  cutAdvice: string;
-  ai: {
-    yieldRate: string;
-    colorConfidence: string;
-    crackRisk: string;
-    water: string;
+  estimate: string;
+  status: "AVAILABLE" | "ON HOLD" | "RESERVED";
+  videoNote: string;
+  note: string;
+  noteEn: string;
+  specs: {
+    shell: string;
+    color: string;
+    light: string;
+    cut: string;
   };
 };
 
 export const stones: Stone[] = [
   {
-    id: "mnd-ice-green-2180",
-    title: "曼德勒冰阳绿开窗半明料",
-    type: "半明料 / 高货色料",
+    id: "wl-01",
+    lot: "001",
+    titleZh: "曼德勒 · 冰阳绿开窗",
+    titleEn: "Mandalay Ice-Yang Green, Window Opened",
+    category: "半明料 · Semi-cut",
+    origin: "曼德勒货源 · 木那场口表现",
     weight: "2.18 kg",
-    origin: "曼德勒货源 / 木那表现",
-    priceSignal: "可发视频",
     cover:
       "https://upload.wikimedia.org/wikipedia/commons/9/96/Jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2814925512338%29.jpg",
-    videoLabel: "开窗微距 + 强光走色",
-    tags: ["冰种", "阳绿", "开窗", "收藏级"],
-    shell: "皮壳紧致，砂感细，局部翻砂均匀，开窗面起光明显。",
-    colorBand: "色带沿开窗右侧延展，绿色集中度高，边界较清晰。",
-    light: "强光下水头穿透感好，局部荧光感明显。",
-    risk: "侧边暗裂需复核，色带是否贯穿仍需二次打灯确认。",
-    cutAdvice: "建议顺着色带方向慢慢取，先保住主色位，不急着大刀切。",
-    ai: {
-      yieldRate: "68%",
-      colorConfidence: "高",
-      crackRisk: "中",
-      water: "冰种倾向"
+    estimate: "面议",
+    status: "AVAILABLE",
+    videoNote: "已存：自然光 / 强光 / 开窗微距",
+    note: "皮壳紧致，砂感细腻，开窗处起光明显。色带沿右侧延展，集中度高，边界清晰。强光下水头穿透，局部见荧光感。",
+    noteEn: "Tight skin, fine sand. The window face throws back light cleanly. Color band runs along the right edge, defined and concentrated.",
+    specs: {
+      shell: "紧砂细皮 · 翻砂均匀",
+      color: "右侧主色 · 集中度高",
+      light: "穿透 · 局部荧光",
+      cut: "顺色带保主色"
     }
   },
   {
-    id: "hp-violet-4360",
-    title: "会卡紫罗兰改口料",
-    type: "改口料 / 紫罗兰",
-    weight: "4.36 kg",
+    id: "wl-02",
+    lot: "002",
+    titleZh: "会卡 · 紫罗兰改口料",
+    titleEn: "Hpakant Lavender, Reworked Face",
+    category: "改口料 · Reworked",
     origin: "会卡场口",
-    priceSignal: "可约细看",
+    weight: "4.36 kg",
     cover:
       "https://upload.wikimedia.org/wikipedia/commons/2/2b/Lavender_jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2815112081905%29.jpg",
-    videoLabel: "自然光走紫 + 侧光结构",
-    tags: ["紫罗兰", "改口", "手镯位", "性价比"],
-    shell: "改口面肉质细腻，皮壳局部偏薄，雾层过渡自然。",
-    colorBand: "紫色偏淡雅，底色均匀，适合做柔和东方风格成品。",
-    light: "灯下起胶感，棉感可见但不散乱。",
-    risk: "紫料见光易淡，需直播自然光复核色差。",
-    cutAdvice: "先避开棉集中的地方，有手镯位再考虑取镯，余料可以看挂件。",
-    ai: {
-      yieldRate: "54%",
-      colorConfidence: "中",
-      crackRisk: "低",
-      water: "糯冰倾向"
+    estimate: "面议",
+    status: "AVAILABLE",
+    videoNote: "已存：自然光走紫 / 侧光结构",
+    note: "改口面肉质细腻，皮壳偏薄，雾层过渡自然。紫色偏淡雅，底色均匀，适合做柔和东方风格成品。",
+    noteEn: "A reworked face revealing fine flesh. Lavender, soft and even, draws the kind of light that flatters quiet pieces.",
+    specs: {
+      shell: "薄皮 · 雾层柔和",
+      color: "淡紫均匀 · 底色稳",
+      light: "起胶 · 棉不散",
+      cut: "避棉取镯余作挂件"
     }
   },
   {
-    id: "rl-black-shell-1280",
-    title: "瑞丽黑皮高冰打灯料",
-    type: "原石 / 打灯料",
-    weight: "1.28 kg",
+    id: "wl-03",
+    lot: "003",
+    titleZh: "瑞丽 · 黑皮高冰打灯料",
+    titleEn: "Ruili Black Skin, High Ice on Backlight",
+    category: "原石 · Raw",
     origin: "瑞丽市场精选",
-    priceSignal: "直播可看",
+    weight: "1.28 kg",
     cover:
       "https://upload.wikimedia.org/wikipedia/commons/3/3f/Raw_jadeite_jade_-_Burke_Museum_-_01.jpg",
-    videoLabel: "黑皮压灯 + 裂纹巡检",
-    tags: ["高冰", "黑皮", "打灯", "直播代购"],
-    shell: "黑皮壳老辣，局部有蟒带表现，压灯透度强。",
-    colorBand: "暂未见明显大色带，重点看种水和净度。",
-    light: "压灯通透，边缘有冰感，肉质结构较紧。",
-    risk: "黑皮料不确定性高，内裂与变种风险需重点说明。",
-    cutAdvice: "这种黑皮料别急，先小窗口扩开看看，再决定要不要整切。",
-    ai: {
-      yieldRate: "42%",
-      colorConfidence: "低",
-      crackRisk: "中高",
-      water: "高冰倾向"
+    estimate: "面议",
+    status: "ON HOLD",
+    videoNote: "已存：黑皮压灯 / 裂纹巡检",
+    note: "黑皮壳老辣，局部有蟒带表现。压灯通透，边缘起冰感，肉质结构紧。色带尚不明确，重点看种水与净度。",
+    noteEn: "An old black skin with python banding. Backlit, the body throws an ice-cold clarity. Read it for water, not for colour.",
+    specs: {
+      shell: "黑皮老辣 · 见蟒带",
+      color: "未明 · 看种水",
+      light: "通透 · 边起冰",
+      cut: "小窗扩开 · 不整切"
     }
   }
 ];
