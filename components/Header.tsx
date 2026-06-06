@@ -23,8 +23,8 @@ export function Header() {
         <nav className="hidden items-center gap-8 lg:flex">
           {[
             ["Selection", "本期甄选", "#selection"],
+            ["Footage", "镜头记录", "#footage"],
             ["Consult", "看货助手", "#consult"],
-            ["Provenance", "来路与方法", "#provenance"],
             ["Inquire", "私下询问", "#inquire"]
           ].map(([en, zh, href]) => (
             <a

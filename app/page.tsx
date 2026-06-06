@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { StoneCard } from "@/components/StoneCard";
 import { ContactButtons } from "@/components/ContactButtons";
 import { Assistant } from "@/components/Assistant";
+import { VideoShowcase } from "@/components/VideoShowcase";
 import { stones } from "@/data/stones";
 
 const heroImage =
@@ -119,6 +120,36 @@ export default function Home() {
               本期到 6 月 30 日 · 每两周一批新料 · Telegram 频道先发
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* FOOTAGE */}
+      <section className="mt-24 sm:mt-32 lg:mt-44" id="footage">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-ink/85 pb-5">
+            <div>
+              <p className="label text-ink-muted">Footage · 镜头记录</p>
+              <h2 className="display mt-2 text-[36px] leading-none text-ink sm:text-[52px] lg:text-[60px]">
+                看货实录
+              </h2>
+              <p className="display-italic mt-2 text-[15px] text-ink-muted sm:text-[18px]">
+                What the camera saw.
+              </p>
+            </div>
+            <p className="display-italic max-w-xs text-right text-[13px] leading-[1.7] text-ink-muted sm:text-[14px]">
+              自然光 · 强光 · 开窗 · 皮壳 · 切前 · 切后<br />
+              <span className="display-italic">Daylight, backlight, window, skin, before & after.</span>
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <VideoShowcase />
+          </div>
+
+          <p className="mt-12 text-center display-italic text-[12px] leading-[1.65] text-ink-muted">
+            视频只是一段记录 · 真正下手前请用 WhatsApp 视频再过一遍。<br />
+            Footage is a record, not a guarantee. Confirm by live video before any commitment.
+          </p>
         </div>
       </section>
 
