@@ -6,6 +6,9 @@
   color-scheme: dark;
   --font-sans: "Inter", "Avenir Next", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
   --font-serif: var(--font-display), "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+  --jade: 0 166 125;
+  --gold: 215 182 109;
+  --bone: 243 238 226;
 }
 
 * {
@@ -14,6 +17,8 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -27,13 +32,33 @@ body {
   background-size: auto, auto, 28px 28px, auto;
   color: #f3eee2;
   font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11", "tnum" off;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Subtle grain — gives the dark background a film-stock feel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+:focus-visible {
+  outline: 1px solid rgba(215, 182, 109, 0.7);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 ::selection {
@@ -51,13 +76,81 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(215, 182, 109, 0.5), rgba(0, 166, 125, 0.4));
+  background: linear-gradient(180deg, rgba(215, 182, 109, 0.55), rgba(0, 166, 125, 0.45));
   border-radius: 999px;
   border: 2px solid #070908;
 }
 
+/* Numeric / proof figures: tabular for clean alignment */
+.figure-num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum", "lnum";
+  letter-spacing: -0.01em;
+}
+
 .jade-border {
   border: 1px solid rgba(183, 227, 206, 0.18);
+}
+
+/* Section eyebrow ornament — gold tick + tracked caption */
+.eyebrow-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.eyebrow-rule::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(215, 182, 109, 0.8));
+}
+
+/* Refined gold rule — thinner with double pass */
+.gold-rule {
+  background: linear-gradient(90deg, transparent, rgba(215, 182, 109, 0.65), transparent);
+  height: 1px;
+}
+
+.gold-rule-soft {
+  background:
+    linear-gradient(90deg, transparent, rgba(215, 182, 109, 0.45) 30%, rgba(215, 182, 109, 0.45) 70%, transparent),
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04) 50%, transparent);
+  height: 1px;
+}
+
+/* Decorative gold corners — applied to refined cards */
+.gold-corners::before,
+.gold-corners::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(215, 182, 109, 0.55);
+  pointer-events: none;
+  transition: border-color 0.4s ease, width 0.4s ease, height 0.4s ease;
+}
+
+.gold-corners::before {
+  top: 8px;
+  left: 8px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.gold-corners::after {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.gold-corners:hover::before,
+.gold-corners:hover::after {
+  border-color: rgba(215, 182, 109, 0.95);
+  width: 20px;
+  height: 20px;
 }
 
 .micro-texture {
@@ -90,9 +183,32 @@ a {
   background-size: 100% 9px;
 }
 
-.gold-rule {
-  background: linear-gradient(90deg, transparent, rgba(215, 182, 109, 0.65), transparent);
-  height: 1px;
+/* Pulsing red dot — used for LIVE / new arrival markers */
+.pulse-dot {
+  position: relative;
+  display: inline-flex;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.pulse-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgb(184, 75, 63);
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulse-dot::after {
+  content: "";
+  position: relative;
+  margin: auto;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: rgb(184, 75, 63);
+  box-shadow: 0 0 8px rgba(184, 75, 63, 0.8);
 }
 
 .text-balance {
@@ -105,6 +221,13 @@ a {
   text-transform: uppercase;
 }
 
+/* Refined serif drop-cap-ish display class for hero headlines */
+.serif-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.012em;
+  font-feature-settings: "ss01", "kern", "liga";
+}
+
 /* Luxury gold foil text */
 .text-gold-foil {
   background: linear-gradient(96deg, #f6e6b6 0%, #d7b66d 38%, #b78f4f 60%, #f1d99a 100%);
@@ -114,6 +237,12 @@ a {
   color: transparent;
   -webkit-text-fill-color: transparent;
   animation: foil 7s ease-in-out infinite;
+}
+
+/* Soft jade glow text for headlines */
+.text-jade-glow {
+  color: #b7e3ce;
+  text-shadow: 0 0 24px rgba(0, 166, 125, 0.32);
 }
 
 /* Sheen sweep on hover for primary actions */
@@ -159,6 +288,82 @@ a {
   transform: scaleX(1);
 }
 
+/* Step connector line — used in 4-step workflow */
+.step-connector {
+  position: relative;
+}
+
+.step-connector::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  right: -10px;
+  width: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(215, 182, 109, 0.6), transparent);
+}
+
+.step-connector:last-child::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .step-connector::after {
+    display: none;
+  }
+}
+
+/* Card depth — refined two-layer shadow + inner highlight */
+.card-depth {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 1px 1px rgba(0, 0, 0, 0.4),
+    0 18px 40px -24px rgba(0, 0, 0, 0.8);
+  transition: box-shadow 0.45s ease, transform 0.45s ease, border-color 0.45s ease;
+}
+
+.card-depth:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(215, 182, 109, 0.08),
+    0 1px 1px rgba(0, 0, 0, 0.4),
+    0 32px 80px -28px rgba(0, 166, 125, 0.35);
+}
+
+/* Inline progress meter for AI scoring */
+.meter {
+  position: relative;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.meter > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: block;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(0, 166, 125, 0.85), rgba(183, 227, 206, 0.9));
+  box-shadow: 0 0 12px rgba(0, 166, 125, 0.45);
+}
+
+.meter--gold > span {
+  background: linear-gradient(90deg, rgba(215, 182, 109, 0.95), rgba(246, 230, 182, 0.95));
+  box-shadow: 0 0 12px rgba(215, 182, 109, 0.4);
+}
+
+.meter--warm > span {
+  background: linear-gradient(90deg, rgba(184, 75, 63, 0.9), rgba(215, 182, 109, 0.9));
+  box-shadow: 0 0 10px rgba(184, 75, 63, 0.35);
+}
+
+/* Subtle floating ornament for hero */
+.float-soft {
+  animation: float-soft 9s ease-in-out infinite;
+}
+
 /* Scroll-reveal — graceful: only animates where supported, otherwise stays visible */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
@@ -183,6 +388,18 @@ a {
 
   .hero-rise-3 {
     animation-delay: 0.32s;
+  }
+
+  .hero-rise-4 {
+    animation-delay: 0.46s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-soft,
+  .text-gold-foil,
+  .video-sheen::after {
+    animation: none !important;
   }
 }
 
@@ -214,5 +431,27 @@ a {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  80%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
   }
 }
