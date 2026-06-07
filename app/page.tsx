@@ -7,8 +7,7 @@ import { Assistant } from "@/components/Assistant";
 import { VideoShowcase } from "@/components/VideoShowcase";
 import { stones } from "@/data/stones";
 
-const heroImage =
-  "https://upload.wikimedia.org/wikipedia/commons/9/96/Jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2814925512338%29.jpg";
+const heroImage = "/stones/hero.jpg";
 
 export default function Home() {
   return (
