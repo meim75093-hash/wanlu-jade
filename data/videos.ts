@@ -26,8 +26,7 @@ export const videos: Video[] = [
     titleEn: "Window macro · Reading the band",
     caption: "强光从开窗面侧入，看绿色集中度与边界是否清晰。",
     youtubeId: "",
-    poster:
-      "https://upload.wikimedia.org/wikipedia/commons/9/96/Jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2814925512338%29.jpg",
+    poster: "/stones/lot-001.jpg",
     orientation: "portrait",
     lot: "001"
   },
@@ -37,8 +36,7 @@ export const videos: Video[] = [
     titleEn: "Backlight · Reading water",
     caption: "强光从背面打过来，看肉的通透度、棉团是否散乱、有没有内裂走线。",
     youtubeId: "",
-    poster:
-      "https://upload.wikimedia.org/wikipedia/commons/3/3f/Raw_jadeite_jade_-_Burke_Museum_-_01.jpg",
+    poster: "/stones/lot-003.jpg",
     orientation: "portrait",
     lot: "003"
   },
@@ -48,8 +46,7 @@ export const videos: Video[] = [
     titleEn: "Daylight · Lavender check",
     caption: "紫料见光易淡，必须自然光下复核真实色相。",
     youtubeId: "",
-    poster:
-      "https://upload.wikimedia.org/wikipedia/commons/2/2b/Lavender_jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2815112081905%29.jpg",
+    poster: "/stones/lot-002.jpg",
     orientation: "portrait",
     lot: "002"
   },
@@ -59,8 +56,7 @@ export const videos: Video[] = [
     titleEn: "Skin and grain",
     caption: "近距离看皮壳老不老、砂感细不细、有没有蟒带提示色位。",
     youtubeId: "",
-    poster:
-      "https://upload.wikimedia.org/wikipedia/commons/9/96/Jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2814925512338%29.jpg",
+    poster: "/stones/lot-001.jpg",
     orientation: "portrait"
   },
   {
@@ -69,8 +65,7 @@ export const videos: Video[] = [
     titleEn: "Cutting plan",
     caption: "决定切前一晚的录像。切哪刀、保哪边、风险点在哪里全部说清楚。",
     youtubeId: "",
-    poster:
-      "https://upload.wikimedia.org/wikipedia/commons/3/3f/Raw_jadeite_jade_-_Burke_Museum_-_01.jpg",
+    poster: "/stones/hero.jpg",
     orientation: "landscape"
   },
   {
@@ -79,8 +74,7 @@ export const videos: Video[] = [
     titleEn: "After the cut",
     caption: "结果好坏都拍下来。切涨切垮都写在档案里，做长期信任。",
     youtubeId: "",
-    poster:
-      "https://upload.wikimedia.org/wikipedia/commons/2/2b/Lavender_jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2815112081905%29.jpg",
+    poster: "/stones/lot-003.jpg",
     orientation: "landscape"
   }
 ];

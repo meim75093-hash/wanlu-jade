@@ -29,8 +29,7 @@ export const stones: Stone[] = [
     category: "半明料 · Semi-cut",
     origin: "曼德勒货源 · 木那场口表现",
     weight: "2.18 kg",
-    cover:
-      "https://upload.wikimedia.org/wikipedia/commons/9/96/Jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2814925512338%29.jpg",
+    cover: "/stones/lot-001.jpg",
     estimate: "面议",
     status: "AVAILABLE",
     videoNote: "已存：自然光 / 强光 / 开窗微距",
@@ -51,8 +50,7 @@ export const stones: Stone[] = [
     category: "改口料 · Reworked",
     origin: "会卡场口",
     weight: "4.36 kg",
-    cover:
-      "https://upload.wikimedia.org/wikipedia/commons/2/2b/Lavender_jadeitite_%28jadeite_jade%29_%28Hpakan-Tawmaw_Jade_Tract%2C_Hpakan_Ultramafic_Body%2C_Naga-Adaman_Ophiolite%2C_Late_Jurassic%2C_147_Ma%3B_alluvial_clast_%28placer_jade%29_%2815112081905%29.jpg",
+    cover: "/stones/lot-002.jpg",
     estimate: "面议",
     status: "AVAILABLE",
     videoNote: "已存：自然光走紫 / 侧光结构",
@@ -73,8 +71,7 @@ export const stones: Stone[] = [
     category: "原石 · Raw",
     origin: "瑞丽市场精选",
     weight: "1.28 kg",
-    cover:
-      "https://upload.wikimedia.org/wikipedia/commons/3/3f/Raw_jadeite_jade_-_Burke_Museum_-_01.jpg",
+    cover: "/stones/lot-003.jpg",
     estimate: "面议",
     status: "ON HOLD",
     videoNote: "已存：黑皮压灯 / 裂纹巡检",
