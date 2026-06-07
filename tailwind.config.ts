@@ -9,21 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        parchment: "#f4efe4",
-        "parchment-soft": "#f9f5ec",
+        parchment: "#ffffff",
+        "parchment-soft": "#fafafa",
         ivory: "#ffffff",
-        ink: "#15110d",
-        "ink-soft": "#3d352c",
-        "ink-muted": "#6b6357",
-        hairline: "#d9d1bf",
-        "hairline-soft": "#e8e0ce",
-        celadon: "#2f4a3f",
-        "celadon-soft": "#5c7a6b",
-        stamp: "#8b2e22"
+        ink: "#0a0a0a",
+        "ink-soft": "#1a1a1a",
+        "ink-muted": "#666666",
+        hairline: "#e5e5e5",
+        "hairline-soft": "#f0f0f0",
+        celadon: "#0abab5",
+        "celadon-soft": "#5ddbd5",
+        stamp: "#b00020"
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Arial", "sans-serif"],
         serif: ["var(--font-serif)", "Georgia", "serif"],
+        boutique: ["var(--font-boutique)", "Didot", "Bodoni 72", "Georgia", "serif"],
         "display-cn": ["var(--font-display-cn)", "Georgia", "serif"]
       },
       letterSpacing: {

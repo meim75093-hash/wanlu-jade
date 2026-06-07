@@ -2,46 +2,53 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-ink/10 bg-parchment/85 backdrop-blur-md">
-      <div className="border-b border-ink/8 bg-parchment-soft/60">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-hairline bg-white/95 backdrop-blur-md">
+      <div className="border-b border-hairline-soft">
         <p className="mx-auto max-w-7xl px-5 py-1.5 text-center text-[10px] tracking-label uppercase text-ink-muted">
-          Wanlu Jade Selection · Spring 2026 · Lot 001 — 003 Now Showing
+          Wanlu Jade · Spring Selection · Lots 001 — 003 Now Showing
         </p>
       </div>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 sm:py-5">
-        <Link className="flex items-center gap-3" href="#top">
-          <span className="seal h-10 w-10 text-[13px] sm:h-12 sm:w-12 sm:text-[15px]">萬璐</span>
-          <span className="leading-tight">
-            <span className="block font-serif text-base tracking-wide2 text-ink sm:text-lg">
-              WANLU&nbsp;JADE
-            </span>
-            <span className="block text-[10px] tracking-label uppercase text-ink-muted">
-              万璐翡翠 · Source Jadeite
-            </span>
-          </span>
-        </Link>
-        <nav className="hidden items-center gap-8 lg:flex">
+      <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 py-4 sm:px-8 sm:py-5">
+        <nav className="hidden items-center gap-7 lg:flex">
           {[
-            ["Selection", "本期甄选", "#selection"],
-            ["Footage", "镜头记录", "#footage"],
-            ["Consult", "看货助手", "#consult"],
-            ["Inquire", "私下询问", "#inquire"]
-          ].map(([en, zh, href]) => (
+            ["Selection", "#selection"],
+            ["Footage", "#footage"]
+          ].map(([en, href]) => (
             <a
-              className="group flex flex-col items-start text-ink transition hover:text-celadon"
+              className="label text-ink transition hover:text-celadon"
               href={href}
               key={href}
             >
-              <span className="display-italic text-[18px] leading-none">{en}</span>
-              <span className="mt-1 text-[10px] tracking-label uppercase text-ink-muted transition group-hover:text-celadon">
-                {zh}
-              </span>
+              {en}
             </a>
           ))}
         </nav>
-        <a className="btn-ink hidden sm:inline-flex" href="#inquire">
-          询问
-          <span aria-hidden>·</span>
+
+        <Link className="flex flex-col items-center justify-self-center" href="#top">
+          <span className="font-boutique text-[20px] font-medium tracking-[0.22em] text-ink sm:text-[24px]">
+            WANLU&nbsp;JADE
+          </span>
+          <span className="mt-1 text-[10px] tracking-label uppercase text-ink-muted">
+            万璐翡翠
+          </span>
+        </Link>
+
+        <nav className="hidden items-center justify-end gap-7 lg:flex">
+          {[
+            ["Consult", "#consult"],
+            ["Inquire", "#inquire"]
+          ].map(([en, href]) => (
+            <a
+              className="label text-ink transition hover:text-celadon"
+              href={href}
+              key={href}
+            >
+              {en}
+            </a>
+          ))}
+        </nav>
+
+        <a className="btn-tiffany justify-self-end px-4 py-3 text-[10px] lg:hidden" href="#inquire">
           Inquire
         </a>
       </div>

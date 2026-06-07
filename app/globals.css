@@ -5,10 +5,10 @@
 :root {
   color-scheme: light;
   --font-sans: var(--font-sans-ui), "Inter", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
-  --font-serif: var(--font-display), var(--font-cn-serif), "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
-  --font-display-cn: var(--font-cn-display), var(--font-display), var(--font-cn-serif), "Source Han Serif SC", "Noto Serif SC", serif;
-  --ink: 21 17 13;
-  --parchment: 244 239 228;
+  --font-serif: var(--font-boutique), var(--font-display), var(--font-cn-serif), "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+  --font-display-cn: var(--font-cn-display), var(--font-boutique), var(--font-cn-serif), "Source Han Serif SC", "Noto Serif SC", serif;
+  --tiffany: 10 186 181;
+  --ink: 10 10 10;
 }
 
 * {
@@ -25,39 +25,21 @@ body {
   font-synthesis: none;
   margin: 0;
   min-height: 100vh;
-  background: #f4efe4;
-  background-image:
-    radial-gradient(circle at 12% 4%, rgba(47, 74, 63, 0.04), transparent 32rem),
-    radial-gradient(circle at 88% 12%, rgba(139, 46, 34, 0.025), transparent 28rem);
-  color: #15110d;
+  background: #ffffff;
+  color: #0a0a0a;
   font-family: var(--font-serif);
-  font-feature-settings: "kern", "liga", "ss01", "palt", "tnum" off;
+  font-feature-settings: "kern", "liga", "ss01", "palt";
   font-variant-east-asian: proportional-width;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  /* Slightly relaxed line-height for Chinese reading rhythm */
   line-height: 1.75;
 }
 
-/* Chinese characters benefit from a touch of letter spacing at small body sizes;
-   at very large display sizes we tighten to feel intentional and editorial. */
 :lang(zh-CN),
 [lang="zh-CN"] {
-  letter-spacing: 0.01em;
-}
-
-/* Subtle paper grain — like aged catalog stock */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.06;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.05 0 0 0 0.8 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  letter-spacing: 0.005em;
 }
 
 a {
@@ -66,14 +48,14 @@ a {
 }
 
 :focus-visible {
-  outline: 1px solid rgba(47, 74, 63, 0.7);
+  outline: 1px solid #0abab5;
   outline-offset: 4px;
   border-radius: 2px;
 }
 
 ::selection {
-  background: rgba(47, 74, 63, 0.85);
-  color: #f9f5ec;
+  background: #0abab5;
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar {
@@ -82,55 +64,51 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #ece6d8;
+  background: #fafafa;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b8ad97;
+  background: #cccccc;
   border-radius: 999px;
-  border: 2px solid #ece6d8;
+  border: 2px solid #fafafa;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8a8473;
+  background: #999999;
 }
 
-/* Auction catalogue typography — restrained, classical, breathing */
-/* Upright display — strong, credible headlines.
-   Latin renders in Cormorant 500; CJK renders in Noto Serif SC 500 — paired weight,
-   so a mixed line looks balanced. */
+/* === Boutique typography — Tiffany energy === */
+/* Upright display — high-contrast Bodoni for Latin, Noto Serif SC for CJK */
 .display {
   font-family: var(--font-serif);
   font-weight: 500;
-  letter-spacing: -0.008em;
+  letter-spacing: -0.005em;
   font-feature-settings: "ss01", "kern", "liga", "palt";
   font-variant-east-asian: proportional-width;
-  line-height: 1.1;
+  line-height: 1.06;
 }
 
-/* Italic display — Latin gets true italic Cormorant; CJK has no italic, so we
-   substitute the thin literati-style ZCOOL XiaoWei to create the same visual
-   distinction (upright vs italic) in both scripts. */
+/* Italic display — true Bodoni italic for Latin, ZCOOL XiaoWei for CJK */
 .display-italic {
-  font-family: var(--font-display), var(--font-cn-display), var(--font-cn-serif), Georgia, serif;
+  font-family: var(--font-boutique), var(--font-cn-display), var(--font-cn-serif), Georgia, serif;
   font-style: italic;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.18;
   font-feature-settings: "palt";
 }
 
-/* Body Chinese serif — used for running paragraphs */
 .serif {
   font-family: var(--font-serif);
   font-feature-settings: "kern", "liga", "palt";
   font-variant-east-asian: proportional-width;
 }
 
+/* === Boutique labels — tracked, ALL CAPS === */
 .label {
   font-family: var(--font-sans);
   font-size: 10px;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -138,7 +116,7 @@ a {
 .label-sm {
   font-family: var(--font-sans);
   font-size: 9px;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -148,49 +126,117 @@ a {
   font-feature-settings: "tnum", "lnum";
 }
 
-/* Catalogue rule — single ink hairline */
+/* === Hairlines — single grey precision lines === */
 .rule {
   height: 1px;
-  background: rgba(21, 17, 13, 0.18);
+  background: #e5e5e5;
 }
 
 .rule-soft {
   height: 1px;
-  background: rgba(21, 17, 13, 0.1);
+  background: #f0f0f0;
 }
 
 .rule-vert {
   width: 1px;
-  background: rgba(21, 17, 13, 0.14);
+  background: #e5e5e5;
 }
 
-/* Double catalogue rule */
 .rule-double {
-  border-top: 1px solid rgba(21, 17, 13, 0.85);
-  border-bottom: 1px solid rgba(21, 17, 13, 0.18);
+  border-top: 1px solid #0a0a0a;
+  border-bottom: 1px solid #e5e5e5;
   height: 4px;
   padding: 0;
 }
 
-/* Inquiry button — text-only with hairline */
+/* === Boutique buttons === */
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #ffffff;
+  background: #0a0a0a;
+  padding: 16px 30px;
+  border-radius: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-ink:hover {
+  background: #0abab5;
+  color: #ffffff;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #0a0a0a;
+  background: #ffffff;
+  padding: 15px 30px;
+  border: 1px solid #0a0a0a;
+  border-radius: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+.btn-tiffany {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #0a0a0a;
+  background: #0abab5;
+  padding: 16px 30px;
+  border-radius: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-tiffany:hover {
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+/* === Text-only inquiry link with underline === */
 .inquire-link {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-sans);
   font-size: 11px;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #15110d;
+  color: #0a0a0a;
   padding-bottom: 4px;
-  border-bottom: 1px solid rgba(21, 17, 13, 0.55);
-  transition: gap 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid #0a0a0a;
+  transition: gap 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .inquire-link:hover {
   gap: 0.9rem;
-  border-color: #15110d;
+  color: #0abab5;
+  border-color: #0abab5;
 }
 
 .inquire-link .arr {
@@ -201,75 +247,27 @@ a {
   transform: translateX(3px);
 }
 
-/* Primary CTA — ink filled */
-.btn-ink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #f4efe4;
-  background: #15110d;
-  padding: 14px 22px;
-  border-radius: 0;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.btn-ink:hover {
-  background: #2f4a3f;
-}
-
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #15110d;
-  background: transparent;
-  padding: 13px 22px;
-  border: 1px solid rgba(21, 17, 13, 0.6);
-  border-radius: 0;
-  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.btn-outline:hover {
-  background: #15110d;
-  color: #f4efe4;
-}
-
-/* Chop / seal stamp — used once as ornament */
+/* === Tiffany-style monogram box (replaces seal) === */
 .seal {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  border: 1.5px solid #8b2e22;
-  color: #8b2e22;
-  font-family: var(--font-serif);
+  width: 44px;
+  height: 44px;
+  background: #0abab5;
+  color: #ffffff;
+  font-family: var(--font-boutique);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.05em;
-  background: rgba(139, 46, 34, 0.04);
 }
 
-/* Image frame — used on stone photography */
+/* === Image frame — clean, no shadow, hairline border on hover === */
 .frame {
   position: relative;
-  background: #ffffff;
+  background: #fafafa;
   padding: 0;
-  box-shadow:
-    0 1px 0 rgba(21, 17, 13, 0.08),
-    0 30px 60px -34px rgba(21, 17, 13, 0.35);
+  overflow: hidden;
 }
 
 .frame::after {
@@ -277,57 +275,62 @@ a {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  box-shadow: inset 0 0 0 1px rgba(21, 17, 13, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(10, 10, 10, 0.04);
+  transition: box-shadow 0.4s ease;
 }
 
-/* Catalogue field row — label + value */
+.frame:hover::after {
+  box-shadow: inset 0 0 0 1px rgba(10, 10, 10, 0.12);
+}
+
+/* === Catalogue spec row === */
 .spec-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
   gap: 1rem;
-  padding: 0.65rem 0;
-  border-bottom: 1px dotted rgba(21, 17, 13, 0.18);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .spec-row dt {
   font-family: var(--font-sans);
   font-size: 10px;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(21, 17, 13, 0.55);
+  color: #666666;
 }
 
 .spec-row dd {
   font-family: var(--font-serif);
   font-size: 15px;
-  color: #15110d;
+  color: #0a0a0a;
   text-align: right;
 }
 
-/* Lot number — large display ornament */
+/* === Lot number ornament === */
 .lot-num {
-  font-family: var(--font-serif);
+  font-family: var(--font-boutique);
   font-style: italic;
-  font-weight: 500;
-  font-size: 120px;
+  font-weight: 400;
+  font-size: 140px;
   line-height: 1;
-  letter-spacing: -0.04em;
-  color: rgba(21, 17, 13, 0.08);
+  letter-spacing: -0.05em;
+  color: rgba(10, 10, 10, 0.05);
 }
 
 @media (min-width: 1024px) {
   .lot-num {
-    font-size: 180px;
+    font-size: 200px;
   }
 }
 
-/* Quote / pull — italic with hanging quote mark */
+/* === Quote === */
 .pull-quote {
   position: relative;
   font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -336,12 +339,23 @@ a {
   position: absolute;
   left: -0.5em;
   top: -0.15em;
-  font-size: 1.7em;
-  color: rgba(47, 74, 63, 0.4);
+  font-size: 1.8em;
+  color: #0abab5;
   font-style: italic;
 }
 
-/* Soft reveal on view */
+/* === Tiffany Blue accent block — like a small jewellery card === */
+.tiffany-card {
+  background: #0abab5;
+  color: #ffffff;
+}
+
+.tiffany-card .label,
+.tiffany-card .label-sm {
+  color: #ffffff;
+}
+
+/* === Reveal on scroll === */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .reveal {
@@ -372,7 +386,6 @@ a {
   }
 }
 
-/* Marquee — used in subtle "now showing" strip */
 .marquee {
   display: flex;
   gap: 4rem;

@@ -15,45 +15,43 @@ export default function Home() {
     <main id="top" className="pb-28 lg:pb-0">
       <Header />
 
-      {/* HERO — single image, single statement */}
+      {/* HERO — centered, boutique === */}
       <section className="relative pt-24 sm:pt-28 lg:pt-32">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="hero-rise hero-rise-1 mb-4 flex items-center gap-3">
-            <span className="rule w-10" />
-            <span className="label tnum">Wanlu&nbsp;Jade · Spring 2026</span>
-            <span className="rule hidden flex-1 sm:block" />
-          </div>
+        <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
+          <p className="hero-rise hero-rise-1 label tnum text-ink-muted">
+            Spring Selection · 2026
+          </p>
+          <div className="hero-rise hero-rise-1 mx-auto mt-5 h-px w-12 bg-celadon" />
 
-          <h1 className="hero-rise hero-rise-2 display text-[44px] leading-[1.02] tracking-[-0.02em] text-ink sm:text-[68px] lg:text-[96px]">
-            源头翡翠
-            <span className="block display-italic font-normal text-celadon">先看清楚</span>
-            <span className="block">再决定一切。</span>
+          <h1 className="hero-rise hero-rise-2 mt-7 display text-[40px] leading-[1.04] text-ink sm:text-[64px] lg:text-[88px]">
+            源 头 翡 翠
+            <span className="block display-italic text-celadon">先 看 清 楚</span>
+            <span className="block">再 决 定 一 切</span>
           </h1>
 
-          <p className="hero-rise hero-rise-3 mt-6 max-w-xl serif text-[16px] leading-[1.8] text-ink-soft sm:text-[18px]">
-            一块石头被搬到光下，慢慢看皮、看色、看水头、看裂。
-            我们做的，是在你下决定之前，让每一块原石都先被看明白。
+          <p className="hero-rise hero-rise-3 mx-auto mt-8 max-w-xl serif text-[15px] leading-[1.85] text-ink-soft sm:text-[17px]">
+            缅甸翡翠原石，自源头甄选。每一块都先放到自然光与压灯下看明白，再谈价格。
           </p>
-          <p className="hero-rise hero-rise-3 mt-3 display-italic text-[14px] leading-[1.6] text-ink-muted sm:text-[15px]">
-            Burmese jadeite, brought to the light. Three lots for spring.
+          <p className="hero-rise hero-rise-3 mx-auto mt-3 display-italic text-[13px] leading-[1.6] text-ink-muted sm:text-[14px]">
+            Burmese jadeite, brought to the light. Three lots, considered carefully.
           </p>
 
-          <div className="hero-rise hero-rise-4 mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="hero-rise hero-rise-4 mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <a className="btn-ink" href="#selection">
-              本期甄选 · View Lots
+              View Selection
             </a>
             <a className="btn-outline" href="#inquire">
-              询问 · Inquire
+              Inquire
             </a>
           </div>
         </div>
 
-        {/* Hero plate */}
-        <div className="hero-rise hero-rise-4 mt-12 sm:mt-16">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        {/* Hero plate — full bleed centered */}
+        <div className="hero-rise hero-rise-4 mt-14 sm:mt-20">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <div className="frame relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/9]">
               <Image
-                alt="翡翠原石巨幅图版"
+                alt="翡翠原石"
                 className="object-cover"
                 fill
                 priority
@@ -62,10 +60,9 @@ export default function Home() {
                 unoptimized
               />
             </div>
-            <div className="mt-3 flex items-center justify-between text-[10px] tracking-label uppercase text-ink-muted">
-              <span>Plate · 图版 I</span>
-              <span className="tnum">No. 001 — 003 / Spring 2026</span>
-            </div>
+            <p className="mt-4 text-center text-[10px] tracking-label uppercase text-ink-muted">
+              Plate I &nbsp;·&nbsp; <span className="tnum">No. 001 — 003 · Spring 2026</span>
+            </p>
           </div>
         </div>
       </section>
@@ -73,17 +70,17 @@ export default function Home() {
       {/* MANIFESTO */}
       <section className="relative mt-24 sm:mt-32 lg:mt-44">
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
-          <p className="label text-ink-muted">On the way we work · 我们怎么做生意</p>
-          <div className="mx-auto mt-5 h-px w-16 bg-ink/40" />
-          <p className="pull-quote mt-8 text-[22px] leading-[1.55] text-ink sm:text-[28px] lg:text-[32px]">
+          <p className="label text-ink-muted">House Note</p>
+          <div className="mx-auto mt-5 h-px w-12 bg-celadon" />
+          <p className="mt-10 display text-[22px] leading-[1.5] text-ink sm:text-[28px] lg:text-[32px]">
             翡翠原石没有捷径。<br />
             灯下看一遍，自然光看一遍，<br />
             侧边和裂再看一遍，<br />
-            <span className="text-celadon">然后才到价格。</span>
+            <span className="display-italic text-celadon">然后才到价格。</span>
           </p>
-          <p className="display-italic mt-6 text-[14px] leading-[1.6] text-ink-muted sm:text-[15px]">
-            There are no shortcuts in rough jade. Daylight, backlight,<br className="hidden sm:block" />
-            then the cracks — and only then the price.
+          <p className="display-italic mx-auto mt-8 max-w-md text-[13px] leading-[1.7] text-ink-muted sm:text-[14px]">
+            There are no shortcuts in rough jade. Daylight, backlight,
+            then the cracks — only then the price.
           </p>
         </div>
       </section>
@@ -91,18 +88,17 @@ export default function Home() {
       {/* SELECTION */}
       <section className="mt-24 sm:mt-32 lg:mt-44" id="selection">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-ink/85 pb-5">
-            <div>
-              <p className="label text-ink-muted">Catalogue I · 本期图录</p>
-              <h2 className="display mt-2 text-[36px] leading-none text-ink sm:text-[52px] lg:text-[64px]">
-                本期甄选
-              </h2>
-              <p className="display-italic mt-2 text-[15px] text-ink-muted sm:text-[18px]">
-                Three lots, considered carefully.
-              </p>
-            </div>
-            <p className="tnum text-[11px] tracking-label uppercase text-ink-muted">
-              Lot 001 — 003 / Spring 2026
+          <div className="text-center">
+            <p className="label text-ink-muted">Catalogue I</p>
+            <div className="mx-auto mt-4 h-px w-12 bg-celadon" />
+            <h2 className="display mt-6 text-[36px] leading-[1.05] text-ink sm:text-[52px] lg:text-[64px]">
+              本期甄选
+            </h2>
+            <p className="display-italic mt-3 text-[15px] text-ink-muted sm:text-[17px]">
+              The Spring Selection.
+            </p>
+            <p className="tnum mt-4 text-[10px] tracking-label uppercase text-ink-muted">
+              Lots 001 — 003 · Spring 2026
             </p>
           </div>
 
@@ -126,19 +122,17 @@ export default function Home() {
       {/* FOOTAGE */}
       <section className="mt-24 sm:mt-32 lg:mt-44" id="footage">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-ink/85 pb-5">
-            <div>
-              <p className="label text-ink-muted">Footage · 镜头记录</p>
-              <h2 className="display mt-2 text-[36px] leading-none text-ink sm:text-[52px] lg:text-[60px]">
-                看货实录
-              </h2>
-              <p className="display-italic mt-2 text-[15px] text-ink-muted sm:text-[18px]">
-                What the camera saw.
-              </p>
-            </div>
-            <p className="display-italic max-w-xs text-right text-[13px] leading-[1.7] text-ink-muted sm:text-[14px]">
-              自然光 · 强光 · 开窗 · 皮壳 · 切前 · 切后<br />
-              <span className="display-italic">Daylight, backlight, window, skin, before & after.</span>
+          <div className="text-center">
+            <p className="label text-ink-muted">Footage</p>
+            <div className="mx-auto mt-4 h-px w-12 bg-celadon" />
+            <h2 className="display mt-6 text-[36px] leading-[1.05] text-ink sm:text-[52px] lg:text-[60px]">
+              看货实录
+            </h2>
+            <p className="display-italic mt-3 text-[15px] text-ink-muted sm:text-[17px]">
+              What the camera saw.
+            </p>
+            <p className="mx-auto mt-4 max-w-md text-[10px] tracking-label uppercase text-ink-muted">
+              Daylight · Backlight · Window · Skin · Before & After
             </p>
           </div>
 
@@ -162,60 +156,53 @@ export default function Home() {
 
       {/* PROVENANCE */}
       <section className="mt-24 sm:mt-32 lg:mt-44" id="provenance">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-4">
-              <p className="label text-ink-muted">Provenance · 来路与方法</p>
-              <h2 className="display mt-3 text-[34px] leading-[1.1] text-ink sm:text-[42px] lg:text-[52px]">
-                这块石头，<br />
-                是这样被看到的。
-              </h2>
-              <p className="display-italic mt-3 text-[15px] leading-snug text-ink-muted sm:text-[17px]">
-                How a stone arrives at your screen.
-              </p>
-            </div>
-
-            <ol className="lg:col-span-8">
-              {steps.map((step, index) => (
-                <li
-                  className="grid grid-cols-[auto_1fr] gap-5 border-t border-ink/15 py-7 sm:gap-8 sm:py-9"
-                  key={step.zh}
-                >
-                  <span className="tnum display-italic text-[28px] leading-none text-celadon sm:text-[40px]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="display text-[22px] leading-tight text-ink sm:text-[28px]">
-                      {step.zh}
-                    </h3>
-                    <p className="display-italic mt-1 text-[13px] text-ink-muted sm:text-[15px]">
-                      {step.en}
-                    </p>
-                    <p className="serif mt-3 text-[14px] leading-[1.8] text-ink-soft sm:text-[15px]">
-                      {step.note}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+          <div className="text-center">
+            <p className="label text-ink-muted">Provenance</p>
+            <div className="mx-auto mt-4 h-px w-12 bg-celadon" />
+            <h2 className="display mt-6 text-[34px] leading-[1.05] text-ink sm:text-[44px] lg:text-[52px]">
+              来路与方法
+            </h2>
+            <p className="display-italic mt-3 text-[15px] text-ink-muted sm:text-[17px]">
+              How a stone arrives at your screen.
+            </p>
           </div>
+
+          <ol className="mt-14 grid gap-10 sm:grid-cols-2 lg:gap-x-14 lg:gap-y-14">
+            {steps.map((step, index) => (
+              <li className="text-center sm:text-left" key={step.zh}>
+                <span className="tnum display-italic text-[34px] leading-none text-celadon sm:text-[44px]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="display mt-4 text-[22px] leading-tight text-ink sm:text-[26px]">
+                  {step.zh}
+                </h3>
+                <p className="display-italic mt-1 text-[12px] tracking-label uppercase text-ink-muted">
+                  {step.en}
+                </p>
+                <p className="serif mt-3 text-[14px] leading-[1.8] text-ink-soft sm:text-[15px]">
+                  {step.note}
+                </p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
       {/* TESTIMONY / TRUST */}
       <section className="mt-24 sm:mt-32 lg:mt-44">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="rule-double" />
-          <div className="grid gap-10 py-12 sm:grid-cols-3 sm:gap-12 sm:py-16">
+          <div className="rule" />
+          <div className="grid divide-x divide-hairline py-14 sm:grid-cols-3 sm:py-20">
             {trust.map((item) => (
-              <div className="text-center sm:text-left" key={item.zh}>
-                <p className="tnum display text-[44px] leading-none text-ink sm:text-[56px]">
+              <div className="px-6 text-center" key={item.zh}>
+                <p className="tnum display text-[48px] leading-none text-ink sm:text-[64px]">
                   {item.num}
                 </p>
-                <p className="display-italic mt-3 text-[14px] text-celadon">
+                <p className="display-italic mt-4 text-[12px] tracking-label uppercase text-celadon">
                   {item.en}
                 </p>
-                <p className="serif mt-2 text-[15px] leading-[1.7] text-ink-soft sm:text-[16px]">
+                <p className="serif mt-2 text-[14px] leading-[1.7] text-ink-soft sm:text-[15px]">
                   {item.zh}
                 </p>
               </div>
@@ -226,80 +213,78 @@ export default function Home() {
       </section>
 
       {/* INQUIRE */}
-      <section className="mt-24 sm:mt-32 lg:mt-40" id="inquire">
+      <section className="relative mt-24 sm:mt-32 lg:mt-40" id="inquire">
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
-          <p className="label text-ink-muted">Inquire · 私下询问</p>
-          <h2 className="display mt-4 text-[36px] leading-[1.05] text-ink sm:text-[52px] lg:text-[64px]">
-            把想看的料子<br />
-            <span className="display-italic text-celadon">告诉我们。</span>
+          <p className="label text-ink-muted">Inquire</p>
+          <div className="mx-auto mt-4 h-px w-12 bg-celadon" />
+          <h2 className="display mt-7 text-[36px] leading-[1.05] text-ink sm:text-[52px] lg:text-[64px]">
+            把想看的料子
+            <span className="block display-italic text-celadon">告诉我们</span>
           </h2>
-          <p className="serif mt-6 text-[15px] leading-[1.85] text-ink-soft sm:text-[17px]">
+          <p className="serif mt-7 text-[15px] leading-[1.85] text-ink-soft sm:text-[17px]">
             种水、颜色、用途、预算 —— 都可以先说。我们挑出对应的料子，
-            发自然光、压灯和侧面视频，看完再谈价格。不催，不绕。
+            发自然光、压灯和侧面视频，看完再谈价格。
           </p>
-          <p className="display-italic mt-3 text-[14px] leading-[1.65] text-ink-muted sm:text-[15px]">
-            Tell us water, colour, intent and budget. We will send video before we talk price.
+          <p className="display-italic mt-3 text-[13px] leading-[1.65] text-ink-muted sm:text-[14px]">
+            Tell us water, colour, intent and budget. Video before price.
           </p>
 
-          <div className="mt-10">
+          <div className="mt-12">
             <ContactButtons />
           </div>
 
-          <p className="mt-10 display-italic text-[12px] leading-[1.65] text-ink-muted sm:text-[13px]">
+          <p className="mt-12 display-italic text-[11px] leading-[1.7] text-ink-muted sm:text-[12px]">
             翡翠原石具有天然不确定性 · 看货判断仅供参考 · 不构成切涨承诺<br />
             Rough jadeite carries natural uncertainty. Notes are advisory, not guarantees.
           </p>
         </div>
       </section>
 
-      <footer className="mt-24 border-t border-ink/15 sm:mt-32">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-end sm:justify-between sm:px-8">
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="seal h-10 w-10 text-[12px]">萬璐</span>
-              <span>
-                <span className="block font-serif tracking-wide2 text-ink">WANLU JADE</span>
-                <span className="block text-[10px] tracking-label uppercase text-ink-muted">
-                  万璐翡翠 · Source Jadeite
-                </span>
-              </span>
-            </div>
-            <p className="mt-5 max-w-xs serif text-[14px] leading-[1.75] text-ink-soft">
-              缅甸翡翠原石 · 半明料 · 改口料 · 高端色料。源头看货，视频复核，不催不绕。
-            </p>
-          </div>
-          <div className="text-[11px] tracking-label uppercase text-ink-muted sm:text-right">
-            <p>© {new Date().getFullYear()} Wanlu Jade · 万璐翡翠</p>
-            <p className="mt-2 display-italic normal-case tracking-normal text-[13px]">
-              All stones are real. All risks are stated. All prices are private.
-            </p>
-          </div>
+      <footer className="mt-24 border-t border-hairline sm:mt-32">
+        <div className="mx-auto max-w-7xl px-5 py-16 text-center sm:px-8 sm:py-20">
+          <p className="font-boutique text-[20px] tracking-[0.22em] text-ink sm:text-[22px]">
+            WANLU&nbsp;JADE
+          </p>
+          <p className="mt-2 text-[10px] tracking-label uppercase text-ink-muted">
+            万璐翡翠 · Source Jadeite
+          </p>
+          <div className="mx-auto mt-6 h-px w-12 bg-celadon" />
+          <p className="serif mx-auto mt-6 max-w-md text-[14px] leading-[1.85] text-ink-soft">
+            缅甸翡翠原石 · 半明料 · 改口料 · 高端色料。<br />
+            源头看货，视频复核，不催不绕。
+          </p>
+          <p className="mt-8 display-italic text-[13px] leading-[1.7] text-ink-muted">
+            All stones are real. All risks are stated. All prices are private.
+          </p>
+          <p className="mt-10 text-[10px] tracking-label uppercase text-ink-muted">
+            © {new Date().getFullYear()} Wanlu Jade
+          </p>
         </div>
       </footer>
 
       {/* Mobile sticky inquire bar */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-ink/20 bg-parchment/95 px-4 py-3 backdrop-blur-md lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-hairline bg-white/95 px-4 py-3 backdrop-blur-md lg:hidden">
         <div className="grid grid-cols-3 gap-2">
           <a
-            className="flex flex-col items-center justify-center gap-0.5 bg-ink py-2.5 text-parchment"
+            className="flex flex-col items-center justify-center gap-1 bg-celadon py-2.5 text-ink"
             href="https://wa.me/00000000000"
           >
             <MessageCircle className="h-4 w-4" />
-            <span className="text-[10px] tracking-wide2 uppercase">WhatsApp</span>
+            <span className="text-[10px] tracking-label uppercase font-medium">WhatsApp</span>
           </a>
           <a
-            className="flex flex-col items-center justify-center gap-0.5 border border-ink/55 py-2.5 text-ink"
+            className="flex flex-col items-center justify-center gap-1 border border-ink py-2.5 text-ink"
             href="https://line.me/ti/p/@wanlujade"
           >
             <MessageCircle className="h-4 w-4" />
-            <span className="text-[10px] tracking-wide2 uppercase">LINE</span>
+            <span className="text-[10px] tracking-label uppercase font-medium">LINE</span>
           </a>
           <a
-            className="flex flex-col items-center justify-center gap-0.5 border border-ink/55 py-2.5 text-ink"
+            className="flex flex-col items-center justify-center gap-1 border border-ink py-2.5 text-ink"
             href="https://t.me/wanlujade"
           >
             <Send className="h-4 w-4" />
-            <span className="text-[10px] tracking-wide2 uppercase">Telegram</span>
+            <span className="text-[10px] tracking-label uppercase font-medium">Telegram</span>
           </a>
         </div>
       </div>

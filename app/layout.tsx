@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Noto_Serif_SC, ZCOOL_XiaoWei, Inter } from "next/font/google";
+import { Cormorant_Garamond, Bodoni_Moda, Noto_Serif_SC, ZCOOL_XiaoWei, Inter } from "next/font/google";
 import "./globals.css";
 
 const displaySerif = Cormorant_Garamond({
@@ -7,6 +7,14 @@ const displaySerif = Cormorant_Garamond({
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-display",
+  display: "swap"
+});
+
+const boutiqueSerif = Bodoni_Moda({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-boutique",
   display: "swap"
 });
 
@@ -64,7 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="zh-CN"
-      className={`${displaySerif.variable} ${cnSerif.variable} ${cnDisplay.variable} ${sans.variable}`}
+      className={`${displaySerif.variable} ${boutiqueSerif.variable} ${cnSerif.variable} ${cnDisplay.variable} ${sans.variable}`}
     >
       <body>{children}</body>
     </html>
