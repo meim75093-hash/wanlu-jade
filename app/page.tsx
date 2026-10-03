@@ -1,13 +1,13 @@
-import Image from "next/image";
 import { MessageCircle, Send } from "lucide-react";
 import { Header } from "@/components/Header";
 import { StoneCard } from "@/components/StoneCard";
 import { ContactButtons } from "@/components/ContactButtons";
 import { Assistant } from "@/components/Assistant";
 import { VideoShowcase } from "@/components/VideoShowcase";
+import { JadeStoneViewer } from "@/components/JadeStoneViewer";
 import { stones } from "@/data/stones";
 
-const heroImage = "/stones/hero.jpg";
+const featuredModel = stones.find((stone) => stone.model3d);
 
 export default function Home() {
   return (
@@ -45,23 +45,21 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Hero plate — full bleed centered */}
+        {/* Interactive stone viewer replaces the static hero plate. */}
         <div className="hero-rise hero-rise-4 mt-14 sm:mt-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <div className="frame relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/9]">
-              <Image
-                alt="翡翠原石"
-                className="object-cover"
-                fill
-                priority
-                sizes="100vw"
-                src={heroImage}
-                unoptimized
+            {featuredModel ? (
+              <JadeStoneViewer
+                id="stone-3d"
+                modelSrc={featuredModel.model3d!}
+                lot={featuredModel.lot}
+                title={featuredModel.titleZh}
               />
-            </div>
-            <p className="mt-4 text-center text-[10px] tracking-label uppercase text-ink-muted">
-              Plate I &nbsp;·&nbsp; <span className="tnum">No. 001 — 003 · Spring 2026</span>
-            </p>
+            ) : (
+              <div className="frame flex aspect-[4/5] items-center justify-center bg-[#f3f2ed] text-center sm:aspect-[16/10] lg:aspect-[16/9]">
+                <p className="serif px-6 text-sm text-ink-muted">3D 原石模型准备中</p>
+              </div>
+            )}
           </div>
         </div>
       </section>

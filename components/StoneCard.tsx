@@ -80,6 +80,12 @@ export function StoneCard({ stone, index }: { stone: Stone; index: number }) {
         </dl>
 
         <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+          {stone.model3d && (
+            <a className="inquire-link" href="#stone-3d">
+              查看 3D 原石
+              <span className="arr" aria-hidden>↗</span>
+            </a>
+          )}
           <a className="inquire-link" href="#inquire">
             Request private viewing
             <span className="arr" aria-hidden>→</span>
