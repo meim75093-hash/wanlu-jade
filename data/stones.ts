@@ -7,6 +7,7 @@ export type Stone = {
   origin: string;
   weight: string;
   cover: string;
+  model3d?: string;
   estimate: string;
   status: "AVAILABLE" | "ON HOLD" | "RESERVED";
   videoNote: string;
@@ -72,6 +73,7 @@ export const stones: Stone[] = [
     origin: "瑞丽市场精选",
     weight: "1.28 kg",
     cover: "/stones/lot-003.jpg",
+    model3d: "/stones/JV2026-003-stone-only-tuned.glb",
     estimate: "面议",
     status: "ON HOLD",
     videoNote: "已存：黑皮压灯 / 裂纹巡检",

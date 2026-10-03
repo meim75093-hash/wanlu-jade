@@ -3,11 +3,6 @@ import Link from "next/link";
 export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-hairline bg-white/95 backdrop-blur-md">
-      <div className="border-b border-hairline-soft">
-        <p className="mx-auto max-w-7xl px-5 py-1.5 text-center text-[10px] tracking-label uppercase text-ink-muted">
-          Wanlu Jade · Spring Selection · Lots 001 — 003 Now Showing
-        </p>
-      </div>
       <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 py-4 sm:px-8 sm:py-5">
         <nav className="hidden items-center gap-7 lg:flex">
           {[
